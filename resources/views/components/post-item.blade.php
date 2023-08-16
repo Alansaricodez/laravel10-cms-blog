@@ -1,6 +1,6 @@
-<div class="max-w-sm bg-white rounded-lg shadow mx-auto">
+<div class="w-full bg-white shadow mx-auto">
     <a href="#">
-        <img class="rounded-t-lg" src="https://cdn.pixabay.com/photo/2023/05/15/08/52/flower-7994489_1280.jpg" alt="" />
+        <img class="" src="https://cdn.pixabay.com/photo/2023/05/15/08/52/flower-7994489_1280.jpg" alt="" />
     </a>
     <div class="p-5">
         <a href="#">
