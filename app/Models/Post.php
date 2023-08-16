@@ -15,4 +15,19 @@ class Post extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public function categories(){
+        return $this->belongsToMany(Category::class);
+    }
+
+    public function shortBody($words = 15){
+        return \Illuminate\Support\Str::words(strip_tags($this->body), $words);
+    }
+
+    public function getImage(){
+        if(str_starts_with($this->image, 'http')){
+            return $this->image;
+        }
+        return '/storage/'.$this->image;
+    }
 }

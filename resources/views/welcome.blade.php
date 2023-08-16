@@ -33,10 +33,10 @@
 
     <section class="bg-white p-3">
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 py-3">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 py-3 items-center">
         {{-- latest posts --}}
         
-        <div class="mb-8 col-span-2">
+            <div class="mb-8 col-span-2">
                 <h1 class="md:text-5xl text-3xl w-fit mx-auto font-extrabold uppercase my-3 text-center border-blue-700 border-b-2">{{__('latest Blog')}}</h1>
                 <div class="w-3/4 lg:ms-auto mx-auto my-3">
                     <x-post-item :post="$latestPost" />
@@ -44,53 +44,34 @@
             </div>
 
              {{-- 3 Popular posts --}}
-            <div class="mb-8 md:col-span-1 col-span-2">
-            <h1 class="md:text-xl text-3xl w-fit mx-auto font-extrabold uppercase my-3 text-center border-blue-700 border-b-2">{{__('Popular Blogs')}}</h1>
-                    <div class="flex flex-row w-1/2 mx-auto md:mx-0 gap-2 my-3">
-                        <a href="" class="pt-2">
-                            <img src="https://cdn.pixabay.com/photo/2023/05/15/08/52/flower-7994489_1280.jpg" alt="">
-                            <div class="col-span-3 mt-1">
-                                    <h3 class="test-sm uppercase whitespace-nowrap truncate hover:text-blue-500">post title</h3>
-                                    <div class="flex gap-4 s">
-                                        
-                                            <a href="" class="bg-blue-700 text-white p-1 rounded text-xs font-bold uppercase">category</a>
+            <div class="mb-8 md:col-span-1 col-span-2 ">
+                <h1 class="md:text-xl text-3xl w-fit mx-auto font-extrabold uppercase my-3 text-center border-blue-700 border-b-2">{{__('Popular Blogs')}}</h1>
+                
+                @foreach ($randomPosts as $post)
+                    <div class="flex flex-row  mx-auto md:mx-0 gap-2 my-3">
+                        <a href="" class="pt-2 flex flex-row">
+                            <img src="{{$post->getImage()}}" class=" mx-3" alt="post image" style="max-width: 200px">
+                            <div class="mt-1">
+                                    <h3 class="test-sm uppercase whitespace-nowrap truncate hover:text-blue-500">{{$post->title}}</h3>
+                                    <div class="flex  my-1">
+                                        @foreach ($post->categories as $category)
+                                            <a href="" class="bg-blue-700 text-white p-1 rounded text-xs font-bold uppercase">{{$category->name}}</a>
+                                        @endforeach
+                                        </div>
+                                    <div class="text-xs ms-1">
+                                        {{$post->shortBody()}}
+                                    </div>
+                            </div>
+                        </a>
+                        
+                    </div>
 
-                                    </div>
-                                    <div class="text-xs">
-                                       
-                                    </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="flex flex-row w-1/2 mx-auto md:mx-0 gap-2 my-3">
-                        <a href="" class="pt-2">
-                            <img src="https://cdn.pixabay.com/photo/2023/05/15/08/52/flower-7994489_1280.jpg" alt="">
-                            <div class="col-span-3 mt-1">
-                                    <h3 class="test-sm uppercase whitespace-nowrap truncate hover:text-blue-500">post title</h3>
-                                    <div class="flex gap-4 s">
-                                        
-                                            <a href="" class="bg-blue-700 text-white p-1 rounded text-xs font-bold uppercase">category</a>
-                                    
-                                    </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="flex flex-row w-1/2 mx-auto md:mx-0 gap-2 my-3">
-                        <a href="" class="pt-2">
-                            <img src="https://cdn.pixabay.com/photo/2023/05/15/08/52/flower-7994489_1280.jpg" alt="">
-                            <div class="col-span-3 mt-1">
-                                    <h3 class="test-sm uppercase whitespace-nowrap truncate hover:text-blue-500">post title</h3>
-                                    <div class="flex gap-4 s">
-                                        
-                                            <a href="" class="bg-blue-700 text-white p-1 rounded text-xs font-bold uppercase">category</a>
-                                    
-                                    </div>
-                            </div>
-                        </a>
-                    </div>
+                    <hr>
+                    
+                @endforeach
+                 
                 
                
-                 
             </div>
         </div>
 

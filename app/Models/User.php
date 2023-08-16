@@ -62,6 +62,11 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    public function canAccessFilament(): bool
+    {
+        return $this->hasRole('admin');
+    }
+
     public function posts(){
         return $this->hasMany(Post::class);
     }
