@@ -1,5 +1,5 @@
 <div class="w-full bg-white shadow mx-auto">
-    <a href="#">
+    <a href="{{route('post.show', $post->slug)}}">
         <img class="w-full mx-auto object-cover" src="{{asset($post->getImage())}}" alt="post image" />
     </a>
     <div class="p-5">

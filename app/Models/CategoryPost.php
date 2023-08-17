@@ -9,5 +9,14 @@ class CategoryPost extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     protected $table = 'category_post';
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
+    public function post(){
+        return $this->belongsTo(Post::class);
+    }
 }

@@ -33,10 +33,10 @@
 
     <section class="bg-white p-3">
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 py-3 items-center">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 py-3">
         {{-- latest posts --}}
         
-            <div class="mb-8 col-span-2">
+            <div class="mb-8 col-span-1">
                 <h1 class="md:text-5xl text-3xl w-fit mx-auto font-extrabold uppercase my-3 text-center border-blue-700 border-b-2">{{__('latest Blog')}}</h1>
                 <div class="w-3/4 lg:ms-auto mx-auto my-3">
                     <x-post-item :post="$latestPost" />
@@ -44,15 +44,18 @@
             </div>
 
              {{-- 3 Popular posts --}}
-            <div class="mb-8 md:col-span-1 col-span-2 ">
+            <div class="mb-8 col-span-1 overflow-auto">
                 <h1 class="md:text-xl text-3xl w-fit mx-auto font-extrabold uppercase my-3 text-center border-blue-700 border-b-2">{{__('Popular Blogs')}}</h1>
                 
                 @foreach ($randomPosts as $post)
-                    <div class="flex flex-row  mx-auto md:mx-0 gap-2 my-3">
-                        <a href="" class="pt-2 flex flex-row">
-                            <img src="{{$post->getImage()}}" class=" mx-3" alt="post image" style="max-width: 200px">
+                    <div class="flex flex-row max-w-full  mx-auto md:mx-0 gap-2 my-3">
+                        <a href="{{route('post.show', $post->slug)}}" class="pt-2 flex flex-row">
+                            <img src="{{$post->getImage()}}" class="mx-3" alt="post image" style="max-width: 100px">
+                        </a>
                             <div class="mt-1">
-                                    <h3 class="test-sm uppercase whitespace-nowrap truncate hover:text-blue-500">{{$post->title}}</h3>
+                                <a href="{{route('post.show', $post->slug)}}">
+                                    <h3 class="test-sm uppercase whitespace-nowrap truncate hover:text-blue-500">{{\Illuminate\Support\Str::words($post->title, 6)}}</h3>
+                                </a>
                                     <div class="flex  my-1">
                                         @foreach ($post->categories as $category)
                                             <a href="" class="bg-blue-700 text-white p-1 rounded text-xs font-bold uppercase">{{$category->name}}</a>
@@ -62,11 +65,15 @@
                                         {{$post->shortBody()}}
                                     </div>
                             </div>
-                        </a>
+                       
                         
                     </div>
 
-                    <hr>
+                    @if (!$loop->last)
+                        <hr>
+                    @endif
+
+                    
                     
                 @endforeach
                  
