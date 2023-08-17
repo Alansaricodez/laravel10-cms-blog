@@ -28,6 +28,6 @@ class Post extends Model
         if(str_starts_with($this->image, 'http')){
             return $this->image;
         }
-        return 'postImages/'.$this->image;
+        return $this->image;
     }
 }

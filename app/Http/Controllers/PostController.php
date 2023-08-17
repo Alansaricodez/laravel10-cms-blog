@@ -8,6 +8,7 @@ use App\Models\Post;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -43,20 +44,22 @@ class PostController extends Controller
 
         $slug = Str::slug($request->title);
 
-        if($request->image) {
+        if($request->hasFile('image')) {
+
             $request->validate([
                 'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             ]);
-            $image = $request->file('image');
-            $imageName = $image->getClientOriginalName();
-            $image->storeAs('postImages/', $imageName);
+
+            $imageUrl =$request->image->getClientOriginalName();
+            $request->file('image')->storeAs('post_images', $imageUrl, 'public');
+
 
             $post = Post::create([
                 'title' => $request->title,
                 'slug' => $slug,
                 'body' => $request->body,
                 'user_id' => $request->user_id,
-                'image' => $imageName,
+                'image' => 'storage/post_images/'.$imageUrl,
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
