@@ -108,7 +108,11 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('post.edit', compact('post'));
+        $categories = Category::all();
+        $postCategory = CategoryPost::where('post_id', '=', $post->id)->first();
+        $selectedCategory = $postCategory->category_id;
+
+        return view('post.edit', compact('post', 'categories', 'selectedCategory'));
     }
 
     /**

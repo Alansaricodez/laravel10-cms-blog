@@ -19,9 +19,12 @@
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                   Content
                 </label>
-                <textarea id="myeditorinstance" name="body" rows="10" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 p-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
 
+                
+                <textarea id="myeditorinstance" name="body" rows="10" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 p-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                    
                 </textarea>
+
               </div>
             </div>
 
@@ -60,12 +63,12 @@
     </div>
 
     <script src="https://cdn.tiny.cloud/1/1yis7y9d57kjplyrqqwaopklicv766peiuthafqvl597m5wg/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>    <script>
-      tinymce.init({
-        selector: 'textarea',
-        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
-        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic forecolor backcolor | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
-      });
-    </script>
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic forecolor backcolor | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+    });
+  </script>
    
 
 </x-app-layout>
