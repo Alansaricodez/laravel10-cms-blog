@@ -20,7 +20,7 @@ class Post extends Model
         return $this->belongsToMany(Category::class);
     }
 
-    public function shortBody($words = 15){
+    public function shortBody($words = 10){
         return \Illuminate\Support\Str::words(strip_tags($this->body), $words);
     }
 

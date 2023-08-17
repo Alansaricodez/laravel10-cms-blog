@@ -89,19 +89,17 @@
 
     {{-- blogs by category --}}
     <section class=" p-3">
-        <h1 class="md:text-5xl text-3xl w-fit mx-auto font-extrabold uppercase my-3 text-center border-blue-700 border-b-2">{{__('Category Blogs')}}</h1>
+        @foreach ($categories as $category)
+            <h1 class="md:text-5xl text-3xl w-fit mx-auto font-extrabold uppercase mt-6 text-center border-blue-700 border-b-2">{{$category->name}}</h1>
 
-      
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 items-center mx-auto my-6 p-3">
-      
-            <x-post-item :post="$latestPost" />
-            <x-post-item :post="$latestPost" />
-            <x-post-item :post="$latestPost" />
-            <x-post-item :post="$latestPost" />
+        
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mx-auto my-6 p-3">
+                @foreach ($category->posts->take(4) as $post)
+                    <x-post-item :post="$post" />
+                @endforeach    
+            </div>
             
-         
-        </div>
-    
+        @endforeach
     </section>
     
     

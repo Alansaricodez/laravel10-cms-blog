@@ -12,8 +12,8 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden sm:ml-3 md:flex" >
-                    <x-nav-link href="#">
-                        {{ __('Blog') }}
+                    <x-nav-link href="{{route('post.index')}}">
+                        {{ __('Blogs') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden sm:ml-3 md:flex">

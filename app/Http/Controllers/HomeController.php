@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 
 
@@ -12,6 +13,8 @@ class HomeController extends Controller
 ;
         $randomPosts = Post::all()->take(4);
 
-        return view('welcome', compact('latestPost', 'randomPosts'));
+        $categories = Category::all();
+
+        return view('welcome', compact('latestPost', 'randomPosts', 'categories'));
     }
 }
