@@ -1,8 +1,5 @@
 <x-app-layout>
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
-
-
     <div class="container p-6 mx-auto bg-white">
         <h1 class="md:text-5xl text-3xl w-fit mx-auto font-extrabold uppercase my-3 text-center border-blue-700 border-b-2">{{__('Create new Blog')}}</h1>
     
@@ -22,7 +19,7 @@
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                   Content
                 </label>
-                <textarea id="markdown-editor"  name="body" rows="10" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                <textarea id="myeditorinstance" name="body" rows="10" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 p-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
 
                 </textarea>
               </div>
@@ -62,11 +59,13 @@
           </form>
     </div>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
-    <script>
-        const easyMDE = new EasyMDE({
-            showIcons: ['strikethrough', 'code', 'table', 'redo', 'heading', 'undo', 'heading-bigger', 'heading-smaller', 'heading-1', 'heading-2', 'heading-3', 'clean-block', 'horizontal-rule'],
-            element: document.getElementById('markdown-editor')});
+    <script src="https://cdn.tiny.cloud/1/1yis7y9d57kjplyrqqwaopklicv766peiuthafqvl597m5wg/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>    <script>
+      tinymce.init({
+        selector: 'textarea',
+        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic forecolor backcolor | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+      });
     </script>
+   
+
 </x-app-layout>
