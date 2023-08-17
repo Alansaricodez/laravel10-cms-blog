@@ -27,5 +27,12 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::get('/posts',  [PostController::class, 'index'])->name('post.index');
-Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('post.show');
+Route::controller(PostController::class)->group(function () {
+    Route::get('/posts', 'index')->name('post.index');
+    Route::get('/posts/{post:slug}', 'show')->name('post.show');
+    Route::get('/post-create', 'create')->name('post.create');
+    Route::post('/post', 'store')->name('post.store');
+    Route::get('/posts/{post:slug}/edit', 'edit')->name('post.edit');
+});
+
+

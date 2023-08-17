@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\CategoryPost;
 use App\Models\Post;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -22,7 +27,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('post.create' ,compact('categories'));
     }
 
     /**
@@ -30,7 +36,60 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if(!Auth::check()){
+            return redirect('/login');
+        }
+     
+
+        $slug = Str::slug($request->title);
+
+        if($request->image) {
+            $request->validate([
+                'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            ]);
+            $image = $request->file('image');
+            $imageName = $image->getClientOriginalName();
+            $image->storeAs('postImages/', $imageName);
+
+            $post = Post::create([
+                'title' => $request->title,
+                'slug' => $slug,
+                'body' => $request->body,
+                'user_id' => $request->user_id,
+                'image' => $imageName,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+
+            CategoryPost::create([
+                'category_id' => $request->category,
+                'post_id' => $post->id,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+          
+        } else {
+            $post = Post::create([
+                'title' => $request->title,
+                'slug' => $slug,
+                'body' => $request->body,
+                'user_id' => $request->user_id,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+
+            CategoryPost::create([
+                'category_id' => $request->category,
+                'post_id' => $post->id,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+
+        }
+
+        return redirect('/posts');
+
+
     }
 
     /**
@@ -46,7 +105,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('post.edit', compact('post'));
     }
 
     /**
@@ -63,5 +122,16 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+    }
+
+    public function byCategory(Category $category){
+        $posts = Post::query()
+        ->join('category_post', 'posts.id', '=', 'category_post.post_id')
+        ->where('category_post.category_id', '=', $category->id)
+        ->whereDate('published_at', '<=', Carbon::now())
+        ->orderBy('published_at', 'desc')
+        ->paginate(10);
+
+        return view('post.index', compact(['posts', 'category']));
     }
 }
