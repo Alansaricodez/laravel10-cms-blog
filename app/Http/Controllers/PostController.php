@@ -128,7 +128,13 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        if($post->image){
+           unlink($post->image);
+        }
+        $post->delete();
+
+        return redirect()->back()->with('message', 'post deleted successfully');
+
     }
 
     public function byCategory(Category $category){

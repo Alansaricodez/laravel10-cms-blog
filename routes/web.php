@@ -33,6 +33,10 @@ Route::controller(PostController::class)->group(function () {
     Route::get('/post-create', 'create')->name('post.create');
     Route::post('/post', 'store')->name('post.store');
     Route::get('/posts/{post:slug}/edit', 'edit')->name('post.edit');
+    Route::delete('/posts/{post:slug}/delete', 'destroy')->name('post.destroy');
 });
+
+Route::view('about', 'about')->name('about');
+Route::view('contact', 'contact')->name('contact');
 
 

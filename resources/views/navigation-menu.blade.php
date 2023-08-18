@@ -17,12 +17,12 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden sm:ml-3 md:flex">
-                    <x-nav-link href="">
+                    <x-nav-link href="{{route('about')}}">
                         {{ __('About') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden sm:ml-3 md:flex">
-                    <x-nav-link href="">
+                    <x-nav-link href="{{route('contact')}}">
                         {{ __('Contact') }}
                     </x-nav-link>
                 </div>

@@ -17,10 +17,10 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased ">
         <x-banner />
 
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen  bg-gray-100">
             @livewire('navigation-menu')
 
             <!-- Page Heading -->
@@ -30,6 +30,14 @@
                         {{ $header }}
                     </div>
                 </header>
+            @endif
+
+            @if (\Session::has('message'))
+                <div class="p-3 text-center bg-green-400 text-green-900">
+                    <ul>
+                        <li>{!! \Session::get('message') !!}</li>
+                    </ul>
+                </div>
             @endif
 
             <!-- Page Content -->
