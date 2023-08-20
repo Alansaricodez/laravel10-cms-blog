@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\CategoryPost;
 use App\Models\Post;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +19,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::paginate(8);
+        $posts = Post::orderBy('updated_at', 'desc')->paginate(8);
 
         return view('post.index', compact('posts'));
     }
@@ -120,7 +121,65 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        if(Auth::check() && $post->user_id == Auth::id()){
+            $slug = Str::slug($request->title);
+    
+            if($request->hasFile('image')) {
+    
+                $request->validate([
+                    'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+                ]);
+
+                unlink($post->image);
+    
+                $imageUrl =$request->image->getClientOriginalName();
+                $request->file('image')->storeAs('post_images', $imageUrl, 'public');
+    
+    
+                $post->update([
+                    'title' => $request->title,
+                    'slug' => $slug,
+                    'body' => $request->body,
+                    'user_id' => $request->user_id,
+                    'image' => 'storage/post_images/'.$imageUrl,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]);
+
+    
+                CategoryPost::where('post_id', '=', $post->id)->update([
+                    'category_id' => $request->category,
+                    'post_id' => $post->id,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]);
+              
+            } else {
+                $post->update([
+                    'title' => $request->title,
+                    'slug' => $slug,
+                    'body' => $request->body,
+                    'user_id' => $request->user_id,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]);
+    
+                CategoryPost::where('post_id', '=', $post->id)->update([
+                    'category_id' => $request->category,
+                    'post_id' => $post->id,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]);
+    
+            }
+    
+            return redirect('/posts')->with('message', 'post updated successfully');
+           
+        }else{
+            return redirect('/login');
+        }
+     
+
     }
 
     /**
@@ -146,5 +205,10 @@ class PostController extends Controller
         ->paginate(10);
 
         return view('post.index', compact(['posts', 'category']));
+    }
+
+    public function UserPosts(){
+
+        return view('post.userPosts');
     }
 }

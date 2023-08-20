@@ -124,9 +124,13 @@
                                         {{ __('API Tokens') }}
                                     </x-dropdown-link>
                                 @endif
+                                
+                                <x-dropdown-link href="{{ route('post.myPosts', Auth::id()) }}">
+                                    {{ __('My Blogs') }}
+                                </x-dropdown-link>
 
                                 <div class="border-t border-gray-200"></div>
-
+                                
                                 <!-- Authentication -->
                                 <form method="POST" action="{{ route('logout') }}" x-data>
                                     @csrf
@@ -135,6 +139,7 @@
                                             @click.prevent="$root.submit();">
                                         {{ __('Log Out') }}
                                     </x-dropdown-link>
+
                                 </form>
                             </x-slot>
                         </x-dropdown>

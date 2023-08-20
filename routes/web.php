@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
@@ -33,10 +34,17 @@ Route::controller(PostController::class)->group(function () {
     Route::get('/post-create', 'create')->name('post.create');
     Route::post('/post', 'store')->name('post.store');
     Route::get('/posts/{post:slug}/edit', 'edit')->name('post.edit');
+    Route::patch('/posts/{post:slug}/update', 'update')->name('post.update');
     Route::delete('/posts/{post:slug}/delete', 'destroy')->name('post.destroy');
+    //get user posts
+    Route::get('/Userposts/{user:id}/userBlogs', 'UserPosts')->name('post.myPosts');
 });
 
 Route::view('about', 'about')->name('about');
 Route::view('contact', 'contact')->name('contact');
+
+Route::post('contact', [ContactController::class, 'send'])->name('send.message');
+
+
 
 

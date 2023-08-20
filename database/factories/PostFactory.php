@@ -24,7 +24,6 @@ class PostFactory extends Factory
         return [
             'title' => $title,
             'slug' => \Illuminate\Support\Str::slug($title),
-            'image' => fake()->imageUrl(),
             'body' => fake()->realText(5000),
             'created_at' => fake()->dateTime(),
             'updated_at' => fake()->dateTime(),

@@ -3,8 +3,9 @@
     <div class="container p-6 mx-auto bg-white">
         <h1 class="md:text-5xl text-3xl w-fit mx-auto font-extrabold uppercase my-3 text-center border-blue-700 border-b-2">{{__('Create new Blog')}}</h1>
     
-        <form class="w-full max-w-2xl mx-auto mt-12" method="POST" action="{{route('post.store')}}" enctype="multipart/form-data">
+        <form class="w-full max-w-2xl mx-auto mt-12" method="POST" action="{{route('post.update', $post->slug)}}" enctype="multipart/form-data">
             @csrf
+            @method('patch')
             <div class="flex flex-wrap -mx-3 mb-6">
               <div class="w-full  px-3 mb-6 md:mb-0">
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">

@@ -25,8 +25,11 @@ class Post extends Model
     }
 
     public function getImage(){
-        if(str_starts_with($this->image, 'http')){
-            return $this->image;
+        // if(str_starts_with($this->image, 'http')){
+        //     return $this->image;
+        // }
+        if(!$this->image){
+            return '/storage/default_image.png';
         }
         return $this->image;
     }
