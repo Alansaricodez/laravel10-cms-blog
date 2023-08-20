@@ -56,7 +56,7 @@
 
             <div class="mt-6">
                 <button type="submit" class="text-white  transition duration-300 hover:text-blue-700 border border-blue-700 uppercase hover:bg-white bg-blue-700  text-md lg:text-lg font-extrabold py-2 px-4 rounded">
-                   Submit
+                   update
                 </button>
             </div>
           </form>

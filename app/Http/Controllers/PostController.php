@@ -126,11 +126,14 @@ class PostController extends Controller
     
             if($request->hasFile('image')) {
     
+                if($post->image){
+                    unlink($post->image);
+                }
+
                 $request->validate([
                     'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
                 ]);
 
-                unlink($post->image);
     
                 $imageUrl =$request->image->getClientOriginalName();
                 $request->file('image')->storeAs('post_images', $imageUrl, 'public');
@@ -160,14 +163,12 @@ class PostController extends Controller
                     'slug' => $slug,
                     'body' => $request->body,
                     'user_id' => $request->user_id,
-                    'created_at' => now(),
                     'updated_at' => now(),
                 ]);
     
                 CategoryPost::where('post_id', '=', $post->id)->update([
                     'category_id' => $request->category,
                     'post_id' => $post->id,
-                    'created_at' => now(),
                     'updated_at' => now(),
                 ]);
     

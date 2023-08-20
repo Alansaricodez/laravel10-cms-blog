@@ -29,7 +29,7 @@ class Post extends Model
         //     return $this->image;
         // }
         if(!$this->image){
-            return '/storage/default_image.png';
+            return '/storage/default.png';
         }
         return $this->image;
     }
