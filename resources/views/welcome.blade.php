@@ -29,16 +29,16 @@
 
 
 
-    {{-- latest blogs --}}
+    {{-- latest blog --}}
 
     <section class="bg-white p-3">
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3 py-3">
         {{-- latest posts --}}
         
-            <div class="mb-8 col-span-1">
+            <div class="mb-8 col-span-1 mx-auto">
                 <h1 class="md:text-5xl text-3xl w-fit mx-auto font-extrabold uppercase my-3 text-center border-blue-700 border-b-2">{{__('latest Blog')}}</h1>
-                <div class="w-3/4 lg:ms-auto mx-auto my-3">
+                <div class="my-3">
                     <x-post-item :post="$latestPost" />
                 </div>
             </div>
@@ -49,7 +49,7 @@
                 
                 @foreach ($randomPosts as $post)
                     <div class="flex flex-row max-w-full  mx-auto md:mx-0 gap-2 my-3">
-                        <a href="{{route('post.show', $post->slug)}}" class="pt-2 flex flex-row">
+                        <a href="{{route('post.show', $post->slug)}}" class=" flex flex-row">
                             <img src="{{$post->getImage()}}" class="mx-3" alt="post image" style="max-width: 100px">
                         </a>
                             <div class="mt-1">
@@ -58,37 +58,28 @@
                                 </a>
                                     <div class="flex  my-1">
                                         @foreach ($post->categories as $category)
-                                            <a href="" class="bg-blue-700 text-white p-1 rounded text-xs font-bold uppercase">{{$category->name}}</a>
+                                            <a href="{{route('post.category', $category)}}" class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#{{$category->name}}</a>
                                         @endforeach
                                         </div>
                                     <div class="text-xs ms-1">
                                         {{$post->shortBody()}}
                                     </div>
                             </div>
-                       
-                        
                     </div>
 
                     @if (!$loop->last)
                         <hr>
                     @endif
-
-                    
-                    
-                @endforeach
-                 
-                
-               
+                @endforeach       
             </div>
         </div>
-
     </section>
 
        
 
 
     {{-- blogs by category --}}
-    <section class=" p-3">
+    <section class="bg-white p-6">
         @foreach ($categories as $category)
             <h1 class="md:text-5xl text-3xl w-fit mx-auto font-extrabold uppercase mt-6 text-center border-blue-700 border-b-2">{{$category->name}}</h1>
 

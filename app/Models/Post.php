@@ -20,14 +20,11 @@ class Post extends Model
         return $this->belongsToMany(Category::class, 'category_post');
     }
 
-    public function shortBody($words = 10){
+    public function shortBody($words = 12){
         return \Illuminate\Support\Str::words(strip_tags($this->body), $words);
     }
 
     public function getImage(){
-        // if(str_starts_with($this->image, 'http')){
-        //     return $this->image;
-        // }
         if(!$this->image){
             return '/storage/default.png';
         }

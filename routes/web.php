@@ -36,9 +36,13 @@ Route::controller(PostController::class)->group(function () {
     Route::get('/posts/{post:slug}/edit', 'edit')->name('post.edit');
     Route::patch('/posts/{post:slug}/update', 'update')->name('post.update');
     Route::delete('/posts/{post:slug}/delete', 'destroy')->name('post.destroy');
-    //get user posts
-    Route::get('/Userposts/{user:id}/userBlogs', 'UserPosts')->name('post.myPosts');
+
+    //posts by category
+    Route::get('/{category:name}/posts', 'byCategory')->name('post.category');
 });
+
+//get user posts
+Route::view('/{user:name}/posts', 'post.userPosts')->name('post.myPosts');
 
 Route::view('about', 'about')->name('about');
 Route::view('contact', 'contact')->name('contact');
