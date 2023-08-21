@@ -3,8 +3,9 @@
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Input;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,3 +53,4 @@ Route::post('contact', [ContactController::class, 'send'])->name('send.message')
 
 
 
+Route::get('/search', [HomeController::class, 'search'])->name('search');

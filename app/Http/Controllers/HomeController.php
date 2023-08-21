@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use Illuminate\Http\Request;
 
 
 class HomeController extends Controller
@@ -16,5 +17,18 @@ class HomeController extends Controller
         $categories = Category::all();
 
         return view('welcome', compact('latestPost', 'randomPosts', 'categories'));
+    }
+
+    public function search(Request $request){
+        $search = $request->textInput;
+        $posts = Post::where('title','LIKE','%'.$search.'%')
+        ->orWhere('body','LIKE','%'.$search.'%')
+        ->get();
+
+        //search in categories if posts == 0
+        if($posts->count() == 0){
+            $posts = Category::where('name','LIKE','%'.$search.'%')->first()->posts;
+        }
+        return view('post.search', compact('posts'));
     }
 }
