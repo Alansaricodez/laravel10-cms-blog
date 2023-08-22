@@ -45,7 +45,7 @@
         
         <div class="px-6 pt-4 pb-2 flex flex-row justify-between">
             @foreach ($post->categories as $category)
-                <a href="{{route('post.category', $category)}}" class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#{{$category->name}}</a>
+                <a href="{{route('post.category', $category)}}" class="inline-block hover:bg-gray-200 transition-all ease  rounded-full px-3 py-1 text-sm font-semibold text-gray-500">#{{$category->name}}</a>
             @endforeach
             
             @if (Auth::id() == $post->user->id)

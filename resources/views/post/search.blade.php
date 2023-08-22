@@ -2,7 +2,7 @@
     <div class="container p-6 mx-auto bg-white">
         <h1 class="md:text-5xl text-3xl w-fit mx-auto font-extrabold uppercase my-3 text-center border-blue-700 border-b-2">{{__('Search Results')}}</h1>
 
-        <form action="{{route('search')}}" method="GET" role="search" class="mt-6">
+        <form action="{{route('search')}}" method="GET" role="search" class="mt-6  w-3/4 mx-auto">
             @csrf
             <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
             <div class="relative">

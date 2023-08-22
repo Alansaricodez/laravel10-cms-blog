@@ -10,7 +10,7 @@
                 <h1 class="mb-4 text-4xl font-extrabold md:text-5xl xl:text-6xl dark:text-white">{{__('Our First Laravel Blog')}}</h1>
 
                 
-                <form action="{{route('search')}}" method="GET" role="search" class="mt-6">
+                <form action="{{route('search')}}" method="GET" role="search" class="mt-6 w-3/4 mx-auto">
                     @csrf
                     <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                     <div class="relative">
@@ -51,20 +51,23 @@
                 @foreach ($randomPosts as $post)
                     <div class="flex flex-row max-w-full  mx-auto md:mx-0 gap-2 my-3">
                         <a href="{{route('post.show', $post->slug)}}" class=" flex flex-row">
-                            <img src="{{$post->getImage()}}" class="mx-3" alt="post image" style="max-width: 100px">
+                            <img src="{{$post->getImage()}}" class="mx-3 h-24 w-24 object-cover" alt="post image" style="">
                         </a>
                             <div class="mt-1">
+                                
                                 <a href="{{route('post.show', $post->slug)}}">
                                     <h3 class="test-sm uppercase whitespace-nowrap truncate hover:text-blue-500">{{\Illuminate\Support\Str::words($post->title, 6)}}</h3>
                                 </a>
-                                    <div class="flex  my-1">
-                                        @foreach ($post->categories as $category)
-                                            <a href="{{route('post.category', $category)}}" class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#{{$category->name}}</a>
-                                        @endforeach
-                                        </div>
-                                    <div class="text-xs ms-1">
-                                        {{$post->shortBody()}}
-                                    </div>
+                               
+                                <div class="text-xs my-2">
+                                    {{$post->shortBody()}}
+                                </div>
+
+                                <div class="flex">
+                                    @foreach ($post->categories as $category)
+                                        <a href="{{route('post.category', $category)}}" class="inline-block hover:bg-gray-200 transition-all ease  rounded-full px-3 py-1 text-sm font-semibold text-gray-500">#{{$category->name}}</a>
+                                    @endforeach
+                                </div>
                             </div>
                     </div>
 
