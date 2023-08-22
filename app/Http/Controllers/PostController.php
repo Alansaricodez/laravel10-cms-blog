@@ -65,12 +65,15 @@ class PostController extends Controller
                 'updated_at' => now(),
             ]);
 
-            CategoryPost::create([
-                'category_id' => $request->category,
-                'post_id' => $post->id,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]);
+            $post->categories()->attach($request->category);
+
+
+            // CategoryPost::create([
+            //     'category_id' => $request->category,
+            //     'post_id' => $post->id,
+            //     'created_at' => now(),
+            //     'updated_at' => now(),
+            // ]);
           
         } else {
             $post = Post::create([
@@ -82,12 +85,13 @@ class PostController extends Controller
                 'updated_at' => now(),
             ]);
 
-            CategoryPost::create([
-                'category_id' => $request->category,
-                'post_id' => $post->id,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]);
+            $post->categories()->attach($request->category);
+            // CategoryPost::create([
+            //     'category_id' => $request->category,
+            //     'post_id' => $post->id,
+            //     'created_at' => now(),
+            //     'updated_at' => now(),
+            // ]);
 
         }
 
@@ -150,12 +154,13 @@ class PostController extends Controller
                 ]);
 
     
-                CategoryPost::where('post_id', '=', $post->id)->update([
-                    'category_id' => $request->category,
-                    'post_id' => $post->id,
-                    'created_at' => now(),
-                    'updated_at' => now(),
-                ]);
+                CategoryPost::where('post_id', '=', $post->id)->delete();
+
+
+                 foreach ((array) $request->categories as $value) {
+                    $post->categories()->attach($value);
+                }
+
               
             } else {
                 $post->update([
@@ -165,12 +170,13 @@ class PostController extends Controller
                     'user_id' => $request->user_id,
                     'updated_at' => now(),
                 ]);
-    
-                CategoryPost::where('post_id', '=', $post->id)->update([
-                    'category_id' => $request->category,
-                    'post_id' => $post->id,
-                    'updated_at' => now(),
-                ]);
+                 CategoryPost::where('post_id', '=', $post->id)->delete();
+
+
+                 foreach ((array) $request->categories as $value) {
+                    $post->categories()->attach($value);
+                }
+
     
             }
     

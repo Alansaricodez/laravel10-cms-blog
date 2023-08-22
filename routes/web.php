@@ -43,7 +43,7 @@ Route::controller(PostController::class)->group(function () {
 });
 
 //get user posts
-Route::view('/{user:name}/posts', 'post.userPosts')->name('post.myPosts');
+Route::view('/userPosts', 'post.userPosts')->name('post.myPosts');
 
 Route::view('about', 'about')->name('about');
 Route::view('contact', 'contact')->name('contact');

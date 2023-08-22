@@ -11,6 +11,7 @@
                         {{ __('Home') }}
                     </x-nav-link>
                 </div>
+               
                 <div class="hidden sm:ml-3 md:flex" >
                     <x-nav-link href="{{route('post.index')}}">
                         {{ __('Blogs') }}
@@ -125,7 +126,7 @@
                                     </x-dropdown-link>
                                 @endif
                                 
-                                <x-dropdown-link href="{{ route('post.myPosts', Auth::id()) }}">
+                                <x-dropdown-link href="{{ route('post.myPosts')}}">
                                     {{ __('My Blogs') }}
                                 </x-dropdown-link>
 

@@ -35,7 +35,7 @@
                 Category
                 </label>
                 <div class="relative">
-                    <select name="category" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                    <select name="categories[]" multiple class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                         <option disabled>Select Category</option>
                         @foreach ($categories as $category)
                             <option value="{{$category->id}}" {{$category->id == $selectedCategory  ? 'selected="selected"': ''}}>{{$category->name}}</option>
