@@ -26,7 +26,7 @@ class HomeController extends Controller
         ->get();
 
         //search in categories if posts == 0
-        if($posts->count() == 0){
+        if(!$posts){
             $posts = Category::where('name','LIKE','%'.$search.'%')->first()->posts;
         }
         return view('post.search', compact('posts'));

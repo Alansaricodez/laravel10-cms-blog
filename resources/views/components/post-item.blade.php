@@ -2,7 +2,7 @@
 
 <div class="max-w-sm rounded shadow-lg flex flex-col justify-between">
     <a href="{{route('post.show', $post->slug)}}">
-        <img class=" w-full h-64 object-cover" src="{{asset($post->getImage())}}" alt="post image">
+        <img class=" w-full h-64 object-contain" src="{{asset($post->getImage())}}" alt="post image">
     </a>
 
     <div class="px-6 py-4">
