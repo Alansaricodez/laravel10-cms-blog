@@ -6,11 +6,11 @@
 
       <form  class="my-6" method="POST" action="{{route('comment.store', $post->slug)}}">
         @csrf
-          <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg ">
+          <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 ">
               <label for="comment" class="sr-only">Your comment</label>
-              <textarea id="myeditorinstance" name="content" rows="10" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 p-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                    
-              </textarea>
+              <textarea name="content" rows="6"
+                  class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none "
+                  placeholder="Write a comment..." required></textarea>
 
                   <input type="hidden" name="post_id" value="{{$post->id}}">
                   <input type="hidden" name="user_id" value="{{Auth::id()}}">
@@ -58,7 +58,7 @@
                         </div>
                     @endif
                 </footer>
-                <p class="text-gray-500 ">{!!$comment->content!!}</p>
+                <p class="text-gray-500 ">{{$comment->content}}</p>
             
             </article>
             
@@ -72,13 +72,3 @@
 
     </div>
 </section>
-
-
-
-<script src="https://cdn.tiny.cloud/1/1yis7y9d57kjplyrqqwaopklicv766peiuthafqvl597m5wg/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>    <script>
-    tinymce.init({
-      selector: 'textarea',
-      plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
-      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic forecolor backcolor | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
-    });
-  </script>
