@@ -13,12 +13,12 @@
                 @if ($post->user->profile_photo_path)
                     <img src="{{asset('storage/'.$post->user->profile_photo_path)}}" class="w-12 h-12 object-cover rounded-full" alt="user image">
                 @endif
-                <h2 class="font-bold my-auto">  {{$post->user->name}}</h2> . 
-                <p class="my-auto mx-1">{{$post->updated_at->diffForHumans()}}</p>
+                <h2 class="font-bold my-auto">  {{$post->user->name}} .</h2>  
+                <p class="my-auto mx-1 text-gray-500">{{$post->updated_at->diffForHumans()}}</p>
 
             </div>
 
-            <div class="flex flex-row">
+            <div class="flex flex-row my-auto">
                 @if (Auth::id() == $post->user->id)
                     <div class="flex flex-row gap-3">
                         <a href="{{route('post.edit', $post->slug)}}" class="text-green-500">
@@ -50,6 +50,10 @@
                 <img src="{{asset($post->getImage())}}" class=" w-full my-6 object-cover" alt="user image">
             @endif
                 {!!$post->body!!}
+
+                <hr class="my-6">
+                {{-- comments section --}}
+                <x-post-comments :post="$post" />
        </div>
     </div>
     

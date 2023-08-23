@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
@@ -44,6 +45,11 @@ Route::controller(PostController::class)->group(function () {
 
 //get user posts
 Route::view('/userPosts', 'post.userPosts')->name('post.myPosts');
+
+//comments routes
+Route::post('/{post:slug}/comment', [CommentController::class, 'store'])->name('comment.store');
+Route::delete('/{comment}', [CommentController::class, 'destroy'])->name('comment.destroy');
+
 
 Route::view('about', 'about')->name('about');
 Route::view('contact', 'contact')->name('contact');

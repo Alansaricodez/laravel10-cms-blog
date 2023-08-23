@@ -50,13 +50,14 @@
             @endif
 
             <!-- Page Content -->
-            <main class="bg-gray-100">
+            <main class="bg-gray-100 container mx-auto">
                 {{ $slot }}
             </main>
         </div>
 
         @stack('modals')
 
+        
         @livewireScripts
     </body>
 </html>

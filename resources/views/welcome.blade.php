@@ -71,7 +71,7 @@
 
 
     {{-- blogs by category --}}
-    <section class="bg-white p-6">
+    <section class="bg-white md:p-12 p-6">
         @foreach ($categories as $category)
             <h1 class="md:text-5xl text-3xl w-fit mx-auto font-extrabold uppercase mt-10 text-center border-blue-700 border-b-2">{{$category->name}}</h1>
 
