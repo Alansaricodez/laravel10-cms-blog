@@ -15,11 +15,10 @@ class CategoryPostSeeder extends Seeder
      */
     public function run(): void
     {
-        $postCount = Post::all()->count();
+        $posts = Post::all();
 
-        for($i=0; $i < $postCount; $i++){
+        foreach($posts as $post){
             $category = Category::all()->random(1)->first();
-            $post = Post::all()->random(1)->first();
 
             if(!CategoryPost::where('post_id', '=', $post->id)->first()){
                 CategoryPost::create([

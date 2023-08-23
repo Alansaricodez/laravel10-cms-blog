@@ -11,6 +11,7 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Filters\Filter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -52,15 +53,15 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('user_id'),
+                Tables\Columns\ImageColumn::make('image')
+                ->defaultImageUrl(url('/storage/default.png')),
                 Tables\Columns\TextColumn::make('title'),
-                Tables\Columns\TextColumn::make('slug'),
-                Tables\Columns\TextColumn::make('image'),
                 Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
+                    ->dateTime()
+                    ->sortable(),
             ])
             ->filters([
-                //
+                
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
@@ -89,3 +90,4 @@ class PostResource extends Resource
         ];
     }    
 }
+

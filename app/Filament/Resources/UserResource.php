@@ -51,7 +51,7 @@ class UserResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\TextColumn::make('email'),
-                Tables\Columns\TextColumn::make('profile_photo_path'),
+                Tables\Columns\ImageColumn::make('profile_photo_path')->circular()->width(60)->height(60),
             ])
             ->filters([
                 //
