@@ -2,38 +2,37 @@
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div class="flex justify-between h-16">
-            <div class="flex">
-               
-
-                <!-- Navigation Links -->
-                <div class="hidden md:flex">
-                    <x-nav-link href="{{ url('/') }}" :active="request()->routeIs('/')">
-                        {{ __('Home') }}
-                    </x-nav-link>
-                </div>
-               
-                <div class="hidden sm:ml-3 md:flex" >
-                    <x-nav-link href="{{route('post.index')}}">
-                        {{ __('Blogs') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden sm:ml-3 md:flex">
-                    <x-nav-link href="{{route('about')}}">
-                        {{ __('About') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden sm:ml-3 md:flex">
-                    <x-nav-link href="{{route('contact')}}">
-                        {{ __('Contact') }}
-                    </x-nav-link>
-                </div>
-            </div>
-
-             <!-- Logo -->
-             <div class="shrink-0 flex items-center">
+            <!-- Logo -->
+            <div class="shrink-0 flex items-center mx-auto md:mx-0">
                 <a href="{{ url('/') }}">
                     <img class="h-12 w-12 rounded-full object-cover" src="https://pbs.twimg.com/profile_images/1625822397097037826/qJTjFNXS_400x400.jpg" alt="Logo">
                 </a>
+                
+                <div class="flex ms-3">
+                    <!-- Navigation Links -->
+                    <div class="hidden md:flex">
+                        <x-nav-link href="{{ url('/') }}" :active="request()->routeIs('/')">
+                            {{ __('Home') }}
+                        </x-nav-link>
+                    </div>
+                    
+                    <div class="hidden sm:ml-3 md:flex" >
+                        <x-nav-link href="{{route('post.index')}}">
+                            {{ __('Blogs') }}
+                        </x-nav-link>
+                    </div>
+                    <div class="hidden sm:ml-3 md:flex">
+                        <x-nav-link href="{{route('about')}}">
+                            {{ __('About') }}
+                        </x-nav-link>
+                    </div>
+                    <div class="hidden sm:ml-3 md:flex">
+                        <x-nav-link href="{{route('contact')}}">
+                            {{ __('Contact') }}
+                        </x-nav-link>
+                    </div>
+                    
+                </div>
             </div>
 
             <div class="hidden md:flex md:items-center md:ml-6">
@@ -157,6 +156,7 @@
                 @endauth
                 <!-- Settings Dropdown -->
             </div>
+
 
             <!-- Hamburger -->
             <div class="-mr-2 flex items-center md:hidden">
