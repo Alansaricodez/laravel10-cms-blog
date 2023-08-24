@@ -20,7 +20,7 @@
         </div>
     </section>
 
-    <div class="flex flex-col lg:flex-row justify-evenly align-middle mx-auto">
+    <div class="flex flex-col lg:flex-row justify-evenly align-middle mx-auto  container">
         <div class="p-1">
             {{-- latest blog --}}
             

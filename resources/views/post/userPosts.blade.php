@@ -24,7 +24,7 @@
       </nav>
 
     
-    <div class="h-screen p-6 flex flex-col justify-center align-middle ">
+    <div class="h-screen p-6 flex flex-col  ">
         <h1 class="md:text-5xl text-3xl w-fit mx-auto font-extrabold uppercase my-3 mt-10 text-center border-blue-700 border-b-2">{{__('My Blogs')}}</h1>
         
         @auth
