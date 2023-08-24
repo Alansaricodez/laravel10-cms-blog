@@ -24,48 +24,22 @@
 
     {{-- latest blog --}}
 
-    <section class="bg-white p-3">
+    <section class="p-3">
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 py-3">
+        <div class="flex flex-col gap-3 py-3">
         {{-- latest post --}}
         
-            <div class="mb-8 col-span-1 mx-auto">
-                <h1 class="md:text-5xl text-3xl w-fit mx-auto font-extrabold uppercase my-3 text-center border-blue-700 border-b-2">{{__('latest Blog')}}</h1>
-                <div class="my-6">
+            <div class="mb-8  mx-auto">
+                <h1 class="md:text-5xl text-3xl w-fit mx-auto font-extrabold uppercase my-6 text-center border-blue-700 border-b-2">{{__('latest Blog')}}</h1>
                     <x-post-item :post="$latestPost" />
-                </div>
             </div>
 
              {{--  Popular posts --}}
-            <div class="mb-8 col-span-1 mx-auto">
-                <h1 class="md:text-xl text-3xl w-fit mx-auto font-extrabold uppercase my-6 text-center border-blue-700 border-b-2">{{__('Popular Blogs')}}</h1>
+            <div class="mb-8 mx-auto">
+                <h1 class="md:text-5xl text-3xl w-fit mx-auto font-extrabold uppercase my-6 text-center border-blue-700 border-b-2">{{__('Popular Blogs')}}</h1>
                 
                 @foreach ($popularPosts as $post)
-                    <div class="flex flex-row max-w-full overflow-hidden  mx-auto md:mx-0 gap-2 my-3">
-                        <a href="{{route('post.show', $post->slug)}}" class="hidden md:flex flex-row">
-                            <img src="{{$post->getImage()}}" class="mx-3 h-24 w-24 object-cover" alt="post image" style="">
-                        </a>
-                        <div class="mt-1 mx-2">
-                            
-                            <a href="{{route('post.show', $post->slug)}}">
-                                <h3 class="text-md lg:text-lg font-bold uppercase truncate hover:text-blue-500 ">{{\Illuminate\Support\Str::words($post->title, 8)}}</h3>
-                            </a>
-
-                            <p class="text-gray-500 text-base">{{$post->shortBody()}}</p>
-                            
-                            <div class="flex">
-                                @foreach ($post->categories as $category)
-                                    <a href="{{route('post.category', $category)}}" class="inline-block  hover:bg-gray-200 transition-all ease  rounded-full px-3 py-1 text-sm font-semibold text-gray-500">#{{$category->name}}</a>
-                                @endforeach
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    @if (!$loop->last)
-                        <hr>
-                    @endif
+                    <x-post-item :post="$post" />
                 @endforeach       
             </div>
         </div>
@@ -75,22 +49,24 @@
 
 
     {{-- blogs by category --}}
-    <section class="bg-white md:p-12 p-6">
-        @foreach ($categories as $category)
-            <a href="{{route('post.category', $category)}}">
-                <h1 class="md:text-5xl text-3xl w-fit mx-auto font-extrabold uppercase mt-10 text-center border-blue-700 border-b-2">
-                        {{$category->name}}
+    <section class=" lg:p-6 p-1">
+        <div class="flex flex-col gap-3 mx-auto my-6 p-3">
+            @foreach ($categories as $category)
+                <h1 class="md:text-5xl text-3xl  w-fit mx-auto font-extrabold uppercase mt-10 text-center border-blue-700 border-b-2">
+                    <a href="{{route('post.category', $category)}}">
+                                {{$category->name}}
+                    </a>
                 </h1>
-            </a>
 
-        
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mx-auto my-6 p-3">
-                @foreach ($category->posts->take(4) as $post)
-                    <x-post-item :post="$post" />
-                @endforeach    
-            </div>
             
+                <div class="mb-8 mx-auto">
+                    @foreach ($category->posts->take(4) as $post)
+                        <x-post-item :post="$post" />
+                    @endforeach    
+                </div>
+                        
         @endforeach
+        </div>
     </section>
     
     
