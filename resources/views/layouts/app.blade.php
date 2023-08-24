@@ -55,7 +55,7 @@
             @endif
          
             <!-- Page Content -->
-            <main class="bg-gray-100 container  mx-auto">
+            <main class="bg-gray-100 container pt-14  mx-auto">
                 {{ $slot }}
             </main>
         </div>

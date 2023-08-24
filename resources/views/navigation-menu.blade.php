@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white border-b fixed z-50 w-full border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -32,7 +32,7 @@
              <!-- Logo -->
              <div class="shrink-0 flex items-center">
                 <a href="{{ url('/') }}">
-                    <span class=" bg-gray-200  p-3 text-gray-600 rounded-full">Logo</span>
+                    <img class="h-12 w-12 rounded-full object-cover" src="https://pbs.twimg.com/profile_images/1625822397097037826/qJTjFNXS_400x400.jpg" alt="Logo">
                 </a>
             </div>
 
