@@ -176,13 +176,13 @@
             <x-responsive-nav-link href="{{ url('/') }}">
                 {{ __('Home') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link href="#">
+            <x-responsive-nav-link href="{{route('post.index')}}">
                 {{ __('Blog') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link href="#">
+            <x-responsive-nav-link href="{{route('about')}}">
                 {{ __('About') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link href="#">
+            <x-responsive-nav-link href="{{route('contact')}}">
                 {{ __('Contact') }}
             </x-responsive-nav-link>
         </div>
@@ -214,6 +214,10 @@
                             {{ __('API Tokens') }}
                         </x-responsive-nav-link>
                     @endif
+
+                    <x-responsive-nav-link href="{{ route('post.myPosts')}}">
+                        {{ __('My Blogs') }}
+                    </x-responsive-nav-link>
 
                     <!-- Authentication -->
                     <form method="POST" action="{{ route('logout') }}" x-data>

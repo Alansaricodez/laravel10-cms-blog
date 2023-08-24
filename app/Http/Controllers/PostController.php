@@ -95,7 +95,7 @@ class PostController extends Controller
 
         }
 
-        return redirect('/posts');
+        return redirect('/posts')->with('message', 'Post Created successfuly!');
 
 
     }

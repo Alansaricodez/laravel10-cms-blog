@@ -44,7 +44,7 @@ Route::controller(PostController::class)->group(function () {
 });
 
 //get user posts
-Route::view('/userPosts', 'post.userPosts')->name('post.myPosts');
+Route::view('/userPosts', 'post.userPosts')->middleware('auth')->name('post.myPosts');
 
 //comments routes
 Route::post('/{post:slug}/comment', [CommentController::class, 'store'])->name('comment.store');

@@ -1,6 +1,6 @@
 
 
-<div class="max-w-sm rounded shadow-lg flex flex-col justify-between">
+<div class="max-w-sm rounded shadow-lg flex flex-col justify-between mx-auto">
     <a href="{{route('post.show', $post->slug)}}">
         <img class=" w-full h-64 object-contain" src="{{asset($post->getImage())}}" alt="post image">
     </a>
@@ -43,3 +43,4 @@
     </div> 
         
   </div>
+  
