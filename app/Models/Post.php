@@ -21,7 +21,7 @@ class Post extends Model
         return $this->belongsToMany(Category::class, 'category_post');
     }
 
-    public function shortBody($words = 12){
+    public function shortBody($words = 8){
         return \Illuminate\Support\Str::words(strip_tags($this->body), $words);
     }
 

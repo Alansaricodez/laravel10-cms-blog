@@ -129,6 +129,14 @@
                                     {{ __('My Blogs') }}
                                 </x-dropdown-link>
 
+                                      
+                                @if (Auth::check() && Auth::user()->hasRole('admin'))
+                                    <x-dropdown-link href="{{ url('/admin')}}">
+                                        {{ __('Dashboard') }}
+                                    </x-dropdown-link>
+                                    
+                                @endif
+
                                 <div class="border-t border-gray-200"></div>
                                 
                                 <!-- Authentication -->
@@ -185,6 +193,13 @@
             <x-responsive-nav-link href="{{route('contact')}}">
                 {{ __('Contact') }}
             </x-responsive-nav-link>
+
+            @if (Auth::check() && Auth::user()->hasRole('admin'))
+                <x-responsive-nav-link href="{{ url('/admin')}}">
+                    {{ __('Dashboard') }}
+                </x-responsive-nav-link>
+                
+            @endif
         </div>
 
         @auth
@@ -218,6 +233,14 @@
                     <x-responsive-nav-link href="{{ route('post.myPosts')}}">
                         {{ __('My Blogs') }}
                     </x-responsive-nav-link>
+
+                    @if (Auth::check() &&  Auth::user()->hasRole('admin'))
+                        <x-responsive-nav-link href="{{ url('/admin')}}">
+                            {{ __('Dashboard') }}
+                        </x-responsive-nav-link>
+                        
+                    @endif
+
 
                     <!-- Authentication -->
                     <form method="POST" action="{{ route('logout') }}" x-data>

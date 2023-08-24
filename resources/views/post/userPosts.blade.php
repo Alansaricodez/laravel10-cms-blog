@@ -1,7 +1,7 @@
 <x-app-layout>
 
      {{-- breadcrumbs --}}
-     <nav class="flex p-6 bg-white" aria-label="Breadcrumb">
+     <nav class="flex p-6 " aria-label="Breadcrumb">
         <ol class="inline-flex items-center space-x-1 md:space-x-3">
           <li class="inline-flex items-center">
             <a href="/" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 ">
@@ -24,23 +24,22 @@
       </nav>
 
     
-    <div class="h-screen bg-white p-6 flex flex-col">
+    <div class="h-screen p-6 flex flex-col justify-center align-middle ">
         <h1 class="md:text-5xl text-3xl w-fit mx-auto font-extrabold uppercase my-3 mt-10 text-center border-blue-700 border-b-2">{{__('My Blogs')}}</h1>
         
         @auth
-        <div class="mt-6 py-3 text-center">
-            <a href="{{route('post.create')}}" class="text-blue-700  transition duration-300 hover:text-white border border-blue-700 uppercase bg-white hover:bg-blue-700  text-md lg:text-lg font-extrabold py-2 px-4 rounded">
-            Create Blog
-            </a>
-        </div>
+          <div class="mt-6 py-3 text-center">
+              <a href="{{route('post.create')}}" class="text-blue-700  transition duration-300 hover:text-white border border-blue-700 uppercase bg-white hover:bg-blue-700  text-md lg:text-lg font-extrabold py-2 px-4 rounded">
+              Create Blog
+              </a>
+          </div>
             
         @endauth
-        <div class="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mx-auto my-6 p-3">
-    
-    
-        @foreach (Auth::user()->posts as $post)
-            <x-post-item :post="$post"/>
-        @endforeach
+
+        <div class="flex flex-col mx-auto w-full my-6 p-3">
+            @foreach (Auth::user()->posts as $post)
+                <x-post-item :post="$post"/>
+            @endforeach
     
         </div>
 

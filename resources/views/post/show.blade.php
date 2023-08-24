@@ -19,6 +19,9 @@
             </div>
 
             <div class="flex flex-row my-auto">
+                
+                <livewire:like :post="$post"/>
+
                 @if (Auth::id() == $post->user->id)
                     <div class="flex flex-row gap-3">
                         <a href="{{route('post.edit', $post->slug)}}" class="text-orange-500 hover:text-orange-700">
