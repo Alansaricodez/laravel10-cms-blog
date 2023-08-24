@@ -11,12 +11,12 @@ class HomeController extends Controller
 {
     public function index(){
         $latestPost = Post::latest()->first();
-;
-        $randomPosts = Post::all()->take(4);
+
+        $popularPosts = Post::withCount('likes')->orderBy('likes_count', 'desc')->take(5)->get();
 
         $categories = Category::all();
 
-        return view('welcome', compact('latestPost', 'randomPosts', 'categories'));
+        return view('welcome', compact('latestPost', 'popularPosts', 'categories'));
     }
 
     public function search(Request $request){
