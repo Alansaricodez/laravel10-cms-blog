@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="container max-w-4xl mx-auto p-3 bg-white px-6 pt-12 text-start">
+    <div class=" max-w-4xl mx-auto p-3 bg-white px-6 pt-12 text-start">
         <div class="md:ms-12 my-3">
              @foreach ($post->categories as $category)
                 <a href="{{route('post.category', $category)}}" class="inline-block hover:bg-gray-200 transition-all ease  rounded-full px-3 py-1 text-sm md:text-xl font-semibold text-gray-500">#{{$category->name}}</a>

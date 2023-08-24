@@ -1,14 +1,14 @@
-<nav x-data="{ open: false }" class="bg-white border-b fixed z-50 w-full border-gray-100">
+<nav x-data="{ open: false }" class="bg-white fixed z-50 w-full">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+    <div class="w-full mx-auto px-4 md:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <!-- Logo -->
-            <div class="shrink-0 flex items-center mx-auto md:mx-0">
+            <div class="shrink-0 flex justify-center items-center mx-auto md:mx-0">
                 <a href="{{ url('/') }}">
                     <img class="h-12 w-12 rounded-full object-cover" src="https://pbs.twimg.com/profile_images/1625822397097037826/qJTjFNXS_400x400.jpg" alt="Logo">
                 </a>
                 
-                <div class="flex ms-3">
+                <div class="flex lg:ms-3">
                     <!-- Navigation Links -->
                     <div class="hidden md:flex">
                         <x-nav-link href="{{ url('/') }}" :active="request()->routeIs('/')">

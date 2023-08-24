@@ -16,7 +16,7 @@
 
         </div>
         
-        <p class="text-gray-700 text-base">{{$post->shortBody()}}</p>
+        <p class="text-gray-500 text-base">{{$post->shortBody()}}</p>
     </div>
     
     <div class="my-3 p-3 flex flex-row justify-between">
