@@ -1,10 +1,10 @@
-<div class="flex flex-row overflow-hidden max-w-full  gap-2 my-3 bg-white p-1 md:p-3 shadow">
+<div class="flex flex-row overflow-hidden mx-auto  gap-2 my-3 bg-white p-1 md:p-3 shadow " style="width: 800px">
     <a href="{{route('post.show', $post->slug)}}" class="hidden md:flex flex-row">
         <img src="{{$post->getImage()}}" class="mx-3 h-32 w-32 object-cover" alt="post image" style="">
     </a>
-    <div class="mt-1 mx-3 w-full p-3">  
+    <div class="mt-1 mx-3 w-full p-3 ">  
         <a href="{{route('post.show', $post->slug)}}">
-            <h3 class="text-md lg:text-lg font-bold uppercase truncate hover:text-blue-500 ">{{\Illuminate\Support\Str::words($post->title, 10)}}</h3>
+            <h3 class="text-md lg:text-lg font-bold uppercase break-all hover:text-blue-500">{{\Illuminate\Support\Str::words($post->title, 15)}}</h3>
         </a>
 
         <p class="text-sm text-gray-500 mb-3">
