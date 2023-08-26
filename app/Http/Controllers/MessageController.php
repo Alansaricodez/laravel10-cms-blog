@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Contact;
+use App\Models\Message;
 use Illuminate\Http\Request;
 
-class ContactController extends Controller
+class MessageController extends Controller
 {
     public function send(Request $request){
-        Contact::create([
+        Message::create([
             'name' => $request->name,
             'email' => $request->email,
             'message' => $request->message,

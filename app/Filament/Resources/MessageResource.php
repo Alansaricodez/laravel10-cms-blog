@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ContactResource\Pages;
-use App\Filament\Resources\ContactResource\RelationManagers;
-use App\Models\Contact;
+use App\Filament\Resources\MessageResource\Pages;
+use App\Filament\Resources\MessageResource\RelationManagers;
+use App\Models\Message;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -13,13 +13,13 @@ use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class ContactResource extends Resource
+class MessageResource extends Resource
 {
-    protected static ?string $model = Contact::class;
+    protected static ?string $model = Message::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
-    protected static ?string $navigationGroup = 'Other';
+    protected static ?string $navigationGroup = 'Contacts';
 
 
     public static function form(Form $form): Form
@@ -34,8 +34,6 @@ class ContactResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Textarea::make('message')
-                    ->required(),
-                Forms\Components\Toggle::make('is_read')
                     ->required(),
             ]);
     }
@@ -71,10 +69,10 @@ class ContactResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListContacts::route('/'),
-            'create' => Pages\CreateContact::route('/create'),
-            'view' => Pages\ViewContact::route('/{record}'),
-            'edit' => Pages\EditContact::route('/{record}/edit'),
+            'index' => Pages\ListMessages::route('/'),
+            'create' => Pages\CreateMessage::route('/create'),
+            'view' => Pages\ViewMessage::route('/{record}'),
+            'edit' => Pages\EditMessage::route('/{record}/edit'),
         ];
     }    
 }
