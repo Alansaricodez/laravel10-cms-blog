@@ -41,7 +41,7 @@
 
         <x-search-component />
         
-        <div class="flex flex-col gap-3 mx-auto my-6 p-3">
+        <div class="flex flex-col gap-3 mx-auto my-6 p-3 lg:w-1/2">
             @foreach ($posts as $post)
                 <x-post-item :post="$post" />
             @endforeach

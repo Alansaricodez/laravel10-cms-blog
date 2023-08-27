@@ -1,6 +1,6 @@
 <x-app-layout>
 {{-- breadcrumbs --}}
-<nav class="flex p-6 bg-white" aria-label="Breadcrumb">
+<nav class="flex p-6" aria-label="Breadcrumb">
     <ol class="inline-flex items-center space-x-1 md:space-x-3">
       <li class="inline-flex items-center">
         <a href="/" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 ">
@@ -34,12 +34,12 @@
     </ol>
   </nav>
     
-    <div class="min-h-screen p-6 mx-auto bg-white">
+    <div class="min-h-screen p-6 mx-auto">
         <h1 class="md:text-5xl text-3xl w-fit mx-auto font-extrabold uppercase my-3 text-center border-blue-700 border-b-2">{{__('Search Results')}}</h1>
 
         <x-search-component />
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mx-auto my-6 p-3">
+        <div class="flex flex-col gap-3 mx-auto my-6 p-3 lg:w-1/2">
             @if($posts->count() > 0)
                 @foreach ($posts as $post)
                     <x-post-item :post="$post" />

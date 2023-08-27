@@ -1,5 +1,5 @@
-<div class="flex flex-row  overflow-hidden mx-auto  gap-2 my-3 bg-white p-1 md:p-3 shadow " style="max-width: 700px;">
-    <a href="{{route('post.show', $post->slug)}}" class="hidden md:flex flex-row">
+<div class="flex flex-row min-w-full overflow-hidden mx-auto  gap-2 my-3 bg-white p-1 md:p-3 shadow " style="max-width: 700px;">
+    <a href="{{route('post.show', $post->slug)}}" class="hidden md:flex flex-row items-center">
         <img src="{{$post->getImage()}}" class="mx-3 h-32 w-32 object-cover" alt="post image" style="">
     </a>
     <div class="mt-1 mx-3 w-full p-3 ">  
