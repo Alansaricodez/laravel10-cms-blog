@@ -21,13 +21,16 @@ class HomeController extends Controller
 
     public function search(Request $request){
         $search = $request->textInput;
+        
         $posts = Post::where('title','LIKE','%'.$search.'%')
         ->orWhere('body','LIKE','%'.$search.'%')
         ->get();
 
         //search in categories if posts == 0
-        if(!$posts){
-            $posts = Category::where('name','LIKE','%'.$search.'%')->first()->posts;
+        if(!$posts == null){
+            $posts = Post::whereHas('categories', function ($query) use ($search) {
+                $query->where('name', $search);
+            })->get();
         }
         return view('post.search', compact('posts'));
     }
