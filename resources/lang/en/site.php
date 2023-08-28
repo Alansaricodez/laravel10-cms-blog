@@ -102,5 +102,6 @@ return [
     'blogs' => 'Blogs',
     'about' => 'About',
     'contact' => 'Contact',
-    'my_blogs' => 'My Blogs'
+    'my_blogs' => 'My Blogs',
+    'manage_account' => 'Manage Account',
 ];

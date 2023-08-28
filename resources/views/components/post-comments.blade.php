@@ -28,9 +28,9 @@
             <article class="p-6 mb-6 text-base bg-white rounded-lg ">
                 <footer class="flex justify-between items-center mb-2">
                     <div class="flex items-center">
-                        <p class="inline-flex items-center mr-3 text-sm text-gray-900 ">
+                        <p class="inline-flex items-center ms-3 text-sm text-gray-900 ">
                             @if ($comment->user->profile_photo_path)
-                                <img class="mr-2 w-6 h-6 rounded-full"
+                                <img class="ms-2 w-6 h-6 rounded-full"
                                 src="{{asset('storage/'.$comment->user->profile_photo_path)}}"
                                 alt="user image" /> 
 

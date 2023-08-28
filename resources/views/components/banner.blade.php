@@ -26,13 +26,13 @@
                     </svg>
                 </span>
 
-                <p class="ml-3 font-medium text-sm text-white truncate" x-text="message"></p>
+                <p class="me-3 font-medium text-sm text-white truncate" x-text="message"></p>
             </div>
 
-            <div class="shrink-0 sm:ml-3">
+            <div class="shrink-0 sm:me-3">
                 <button
                     type="button"
-                    class="-mr-1 flex p-2 rounded-md focus:outline-none sm:-mr-2 transition"
+                    class="-ms-1 flex p-2 rounded-md focus:outline-none sm:-ms-2 transition"
                     :class="{ 'hover:bg-indigo-600 focus:bg-indigo-600': style == 'success', 'hover:bg-red-600 focus:bg-red-600': style == 'danger' }"
                     aria-label="Dismiss"
                     x-on:click="show = false">

@@ -106,6 +106,7 @@ return [
     'discussion' => 'مناقشة',
     'be_the_first_to_comment' => 'كن أول من يعلق!',
     'by' => 'بواسطة',
+    'manage_account' => 'ادارة الحساب',
 
 
 

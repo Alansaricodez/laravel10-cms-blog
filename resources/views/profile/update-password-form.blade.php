@@ -28,7 +28,7 @@
     </x-slot>
 
     <x-slot name="actions">
-        <x-action-message class="mr-3" on="saved">
+        <x-action-message class="ms-3" on="saved">
             {{ __('Saved.') }}
         </x-action-message>
 
