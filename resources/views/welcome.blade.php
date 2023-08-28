@@ -11,7 +11,7 @@
 
         <div class="grid items-center max-w-screen-xl px-4 py-8 mx-auto xl:gap-0 lg:py-16">
             <div class="mx-auto w-full text-center">
-                <h1 class="mb-4 text-4xl font-extrabold md:text-5xl xl:text-6xl text-white">{{__('Our First Laravel Blog')}}</h1>
+                <h1 class="mb-4 text-4xl font-extrabold md:text-5xl xl:text-6xl text-white">{{__('site.our_first_laravel_blog')}}</h1>
 
                 
                 <x-search-component />
@@ -30,13 +30,13 @@
                 {{-- latest post --}}
                 
                     <div class="mb-8  mx-auto ">
-                        <h1 class="md:text-5xl text-3xl w-fit mx-auto font-extrabold uppercase my-6 text-center border-blue-700 border-b-2">{{__('latest Blog')}}</h1>
+                        <h1 class="md:text-5xl text-3xl w-fit mx-auto font-extrabold uppercase my-6 text-center border-blue-700 border-b-2">{{__('site.latest_blog')}}</h1>
                             <x-post-item :post="$latestPost" />
                     </div>
             
                      {{--  Popular posts --}}
                     <div class="mb-8 mx-auto">
-                        <h1 class="md:text-5xl text-3xl w-fit mx-auto font-extrabold uppercase my-6 text-center border-blue-700 border-b-2">{{__('Popular Blogs')}}</h1>
+                        <h1 class="md:text-5xl text-3xl w-fit mx-auto font-extrabold uppercase my-6 text-center border-blue-700 border-b-2">{{__('site.popular_blogs')}}</h1>
                         
                         @foreach ($popularPosts as $post)
                             <x-post-item :post="$post" />
@@ -54,7 +54,7 @@
                     @foreach ($categories as $category)
                         <h1 class="md:text-5xl text-3xl  w-fit mx-auto font-extrabold uppercase mt-10 text-center border-blue-700 border-b-2">
                             <a href="{{route('post.category', $category)}}">
-                                        {{$category->name}}
+                                {{$category->name}}
                             </a>
                         </h1>
             
@@ -71,7 +71,7 @@
         </div>
 
         <div class="bg-white mx-auto p-6 h-fit my-6 md:mt-24 w-full md:w-80">
-            <h1 class="md:text-2xl text-3xl font-extrabold uppercase mb-3">categories</h1>
+            <h1 class="md:text-2xl text-3xl font-extrabold uppercase mb-3">{{__('site.categories')}}</h1>
             <hr>
 
             <ul>

@@ -5,13 +5,13 @@
     </span>
     <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
         <li>
-            <a href="{{route('post.index')}}" class="mr-4 hover:underline md:mr-6 ">Blogs</a>
+            <a href="{{route('post.index')}}" class="mr-4 hover:underline md:mr-6 ">{{__('site.blogs')}}</a>
         </li>
         <li>
-            <a href="{{route('about')}}" class="mr-4 hover:underline md:mr-6 ">About</a>
+            <a href="{{route('about')}}" class="mr-4 hover:underline md:mr-6 ">{{__('site.about')}}</a>
         </li>
         <li>
-            <a href="{{route('contact')}}" class="hover:underline">Contact</a>
+            <a href="{{route('contact')}}" class="hover:underline">{{__('site.contact')}}</a>
         </li>
     </ul>
     </div>

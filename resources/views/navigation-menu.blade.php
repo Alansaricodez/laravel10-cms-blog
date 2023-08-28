@@ -12,23 +12,23 @@
                     <!-- Navigation Links -->
                     <div class="hidden md:flex">
                         <x-nav-link href="{{ url('/') }}" :active="request()->routeIs('/')">
-                            {{ __('Home') }}
+                            {{ __('site.home') }}
                         </x-nav-link>
                     </div>
                     
                     <div class="hidden sm:ml-3 md:flex" >
                         <x-nav-link href="{{route('post.index')}}">
-                            {{ __('Blogs') }}
+                            {{ __('site.blogs') }}
                         </x-nav-link>
                     </div>
                     <div class="hidden sm:ml-3 md:flex">
                         <x-nav-link href="{{route('about')}}">
-                            {{ __('About') }}
+                            {{ __('site.about') }}
                         </x-nav-link>
                     </div>
                     <div class="hidden sm:ml-3 md:flex">
                         <x-nav-link href="{{route('contact')}}">
-                            {{ __('Contact') }}
+                            {{ __('site.contact') }}
                         </x-nav-link>
                     </div>
                     
@@ -116,7 +116,7 @@
                                 </div>
 
                                 <x-dropdown-link href="{{ route('profile.show') }}">
-                                    {{ __('Profile') }}
+                                    {{ __('site.profile') }}
                                 </x-dropdown-link>
 
                                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -126,13 +126,13 @@
                                 @endif
                                 
                                 <x-dropdown-link href="{{ route('post.myPosts')}}">
-                                    {{ __('My Blogs') }}
+                                    {{ __('site.my_blogs') }}
                                 </x-dropdown-link>
 
                                       
                                 @if (Auth::check() && Auth::user()->hasRole('admin'))
                                     <x-dropdown-link href="{{ url('/admin')}}">
-                                        {{ __('Dashboard') }}
+                                        {{ __('site.dashboard') }}
                                     </x-dropdown-link>
                                     
                                 @endif
@@ -145,7 +145,7 @@
 
                                     <x-dropdown-link href="{{ route('logout') }}"
                                             @click.prevent="$root.submit();">
-                                        {{ __('Log Out') }}
+                                        {{ __('site.logout') }}
                                     </x-dropdown-link>
 
                                 </form>
@@ -155,10 +155,10 @@
                 @else
                     <div class="">
                         <x-nav-link href="{{ route('login') }}">
-                            {{ __('login') }}
+                            {{ __('site.login') }}
                         </x-nav-link>
                         <x-nav-link href="{{ route('register') }}">
-                            {{ __('register') }}
+                            {{ __('site.register') }}
                         </x-nav-link>
                     </div>
                 @endauth
@@ -182,21 +182,21 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden md:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link href="{{ url('/') }}">
-                {{ __('Home') }}
+                {{ __('site.home') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link href="{{route('post.index')}}">
-                {{ __('Blog') }}
+                {{ __('site.blogs') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link href="{{route('about')}}">
-                {{ __('About') }}
+                {{ __('site.about') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link href="{{route('contact')}}">
-                {{ __('Contact') }}
+                {{ __('site.contact') }}
             </x-responsive-nav-link>
 
             @if (Auth::check() && Auth::user()->hasRole('admin'))
                 <x-responsive-nav-link href="{{ url('/admin')}}">
-                    {{ __('Dashboard') }}
+                    {{ __('site.dashboard') }}
                 </x-responsive-nav-link>
                 
             @endif
@@ -221,7 +221,7 @@
                 <div class="mt-3 space-y-1">
                     <!-- Account Management -->
                     <x-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
-                        {{ __('Profile') }}
+                        {{ __('site.profile') }}
                     </x-responsive-nav-link>
 
                     @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -231,12 +231,12 @@
                     @endif
 
                     <x-responsive-nav-link href="{{ route('post.myPosts')}}">
-                        {{ __('My Blogs') }}
+                        {{ __('site.my_blogs') }}
                     </x-responsive-nav-link>
 
                     @if (Auth::check() &&  Auth::user()->hasRole('admin'))
                         <x-responsive-nav-link href="{{ url('/admin')}}">
-                            {{ __('Dashboard') }}
+                            {{ __('site.dashboard') }}
                         </x-responsive-nav-link>
                         
                     @endif
@@ -248,7 +248,7 @@
 
                         <x-responsive-nav-link href="{{ route('logout') }}"
                                     @click.prevent="$root.submit();">
-                            {{ __('Log Out') }}
+                            {{ __('site.logout') }}
                         </x-responsive-nav-link>
                     </form>
 
@@ -290,10 +290,10 @@
             @else
             <div class="">
                 <x-responsive-nav-link href="{{ route('login') }}">
-                    {{ __('login') }}
+                    {{ __('site.login') }}
                 </x-responsive-nav-link>
                 <x-responsive-nav-link href="{{ route('register') }}">
-                    {{ __('register') }}
+                    {{ __('site.register') }}
                 </x-responsive-nav-link>
             </div>
         @endauth

@@ -1,7 +1,7 @@
 <section class="bg-white  py-8 lg:py-16">
     <div class="max-w-2xl mx-auto px-4">
         <div class="flex justify-between items-center mb-6">
-          <h2 class="text-lg lg:text-2xl font-bold text-gray-900 ">Discussion ({{$post->comments->count()}})</h2>
+          <h2 class="text-lg lg:text-2xl font-bold text-gray-900 ">{{__('site.discussion')}} ({{$post->comments->count()}})</h2>
       </div>
 
       <form  class="my-6" method="POST" action="{{route('comment.store', $post->slug)}}">
@@ -17,7 +17,7 @@
           </div>
           <button type="submit"
               class="text-white  transition duration-300 hover:text-blue-700 border border-blue-700 uppercase hover:bg-white bg-blue-700  text-md lg:text-lg font-extrabold py-2 px-4 rounded">
-              Post comment
+             {{__('site.submit')}}
           </button>
       </form>
 
@@ -65,7 +65,7 @@
         @endforeach
 
       @else
-        <p class="text-gray-500 ">{{__('Be the first to comment!')}}</p>
+        <p class="text-gray-500 ">{{__('site.be_the_first_to_comment')}}</p>
       @endif
 
       
