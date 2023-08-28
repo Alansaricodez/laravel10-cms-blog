@@ -22,7 +22,7 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased ">
+    <body class="font-sans antialiased " lang="{{ app()->getLocale() }}" dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}">
         <x-banner />
 
         <div class="min-h-screen  bg-gray-100">

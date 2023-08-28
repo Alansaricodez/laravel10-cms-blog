@@ -12,7 +12,7 @@
                     <!-- Navigation Links -->
                     <div class="hidden md:flex">
                         <x-nav-link href="{{ url('/') }}" :active="request()->routeIs('/')">
-                            {{ __('site.home') }}
+                            {{__('site.home') }}
                         </x-nav-link>
                     </div>
                     
@@ -87,6 +87,48 @@
                         </x-dropdown>
                     </div>
                 @endif
+
+                
+            <nav class="bg-white border-gray-200">
+                <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+
+                    <div class="flex items-center md:order-2">
+                        <button type="button" data-dropdown-toggle="language-dropdown-menu" class="inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-gray-900  rounded-lg cursor-pointer hover:bg-gray-100">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802" />
+                              </svg>
+                              
+                        </button>
+                        <!-- Dropdown -->
+                        <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow " id="language-dropdown-menu">
+                            <ul class="py-2 font-medium" role="none">
+                                <li>
+                                    <a href="{{ url('locale/en') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 " role="menuitem">
+                                        <div class="inline-flex items-center">
+                                            EN
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('locale/ar') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
+                                        <div class="inline-flex items-center">
+                                            AR
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <button data-collapse-toggle="navbar-language" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-language" aria-expanded="false">
+                            <span class="sr-only">Open main menu</span>
+                            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                            </svg>
+                        </button>
+                    </div>
+        
+                </div>
+            </nav>
+  
                 
                 @auth
                     <div class="ml-3 relative">
@@ -198,9 +240,22 @@
                 <x-responsive-nav-link href="{{ url('/admin')}}">
                     {{ __('site.dashboard') }}
                 </x-responsive-nav-link>
-                
             @endif
+
+            <div class="flex flex-row w-fit">
+                <x-responsive-nav-link href="{{url('locale/en')}}">
+                    EN
+                </x-responsive-nav-link>
+                <span class="my-auto">|</span>
+                <x-responsive-nav-link href="{{url('locale/ar')}}">
+                    AR
+                </x-responsive-nav-link>
+
+            </div>
+
         </div>
+
+        
 
         @auth
             <!-- Responsive Settings Options -->
@@ -239,9 +294,9 @@
                             {{ __('site.dashboard') }}
                         </x-responsive-nav-link>
                         
-                    @endif
-
-
+                        
+                        @endif
+                        
                     <!-- Authentication -->
                     <form method="POST" action="{{ route('logout') }}" x-data>
                         @csrf

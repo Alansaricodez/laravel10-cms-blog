@@ -4,9 +4,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PostController;
-use App\Models\Post;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Input;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +17,15 @@ use Illuminate\Support\Facades\Input;
 */
 
 Route::get('/', [HomeController::class, 'index']);
+
+Route::get('locale/{locale}', function ($locale){
+    session()->put('locale', $locale);
+    if (request()->fullUrl() === redirect()->back()->getTargetUrl()) {
+        return redirect('/');
+    }
+
+    return redirect()->back();
+});
 
 Route::middleware([
     'auth:sanctum',

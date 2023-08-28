@@ -97,5 +97,10 @@ return [
     'search_result' => 'search results',
     'discussion' => 'discussion',
     'be_the_first_to_comment' => 'كن أول من يعلق!',
-    'by' => 'by',
+    'by' => 'By',
+    'home' => 'Home',
+    'blogs' => 'Blogs',
+    'about' => 'About',
+    'contact' => 'Contact',
+    'my_blogs' => 'My Blogs'
 ];
