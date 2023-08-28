@@ -19,14 +19,14 @@
                   <svg class="w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
                   </svg>
-                  <span class="me-1 text-sm font-medium text-gray-500 md:me-2 "> {{__('site.blogs')}}</span>
+                  <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2 "> {{__('site.blogs')}}</span>
                 </div>
               </li>
             </ol>
           </nav>
 
           <div class="">
-              <h1 class="md:text-5xl text-3xl w-fit mx-auto font-extrabold uppercase my-3 text-center border-blue-700 border-b-2">{{__('Browse All Blogs')}}</h1>
+              <h1 class="md:text-5xl text-3xl w-fit mx-auto font-extrabold uppercase my-3 text-center border-blue-700 border-b-2">{{__('site.browse_blogs')}}</h1>
                       @auth
                           <div class="mt-6 py-3 text-center">
                               <a href="{{route('post.create')}}" class="text-blue-700  transition duration-300 hover:text-white border border-blue-700 uppercase bg-white hover:bg-blue-700  text-md lg:text-lg font-extrabold py-2 px-4 rounded">

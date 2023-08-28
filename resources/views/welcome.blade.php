@@ -29,14 +29,14 @@
                 <div class="flex flex-col">
                 {{-- latest post --}}
                 
-                    <div class="mb-8  mx-auto ">
-                        <h1 class="md:text-5xl text-3xl w-fit mx-auto font-extrabold uppercase my-6 text-center border-blue-700 border-b-2">{{__('site.latest_blog')}}</h1>
+                    <div class="mb-8 ">
+                        <h1 class="md:text-5xl text-3xl w-fit font-extrabold uppercase my-6 border-blue-700 border-b-2">{{__('site.latest_blog')}}</h1>
                             <x-post-item :post="$latestPost" />
                     </div>
             
                      {{--  Popular posts --}}
-                    <div class="mb-8 mx-auto">
-                        <h1 class="md:text-5xl text-3xl w-fit mx-auto font-extrabold uppercase my-6 text-center border-blue-700 border-b-2">{{__('site.popular_blogs')}}</h1>
+                    <div class="mb-8">
+                        <h1 class="md:text-5xl text-3xl w-fit font-extrabold uppercase my-6 border-blue-700 border-b-2">{{__('site.popular_blogs')}}</h1>
                         
                         @foreach ($popularPosts as $post)
                             <x-post-item :post="$post" />
@@ -52,7 +52,7 @@
             <section class=" lg:p-6 p-1">
                 <div class="flex flex-col gap-3 mx-auto my-6 p-3">
                     @foreach ($categories as $category)
-                        <h1 class="md:text-5xl text-3xl  w-fit mx-auto font-extrabold uppercase mt-10 text-center border-blue-700 border-b-2">
+                        <h1 class="md:text-5xl text-3xl  w-fit font-extrabold uppercase mt-10 border-blue-700 border-b-2">
                             <a href="{{route('post.category', $category)}}">
                                 {{$category->name}}
                             </a>
