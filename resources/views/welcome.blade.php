@@ -20,10 +20,9 @@
         </div>
     </section>
 
-    <div class="flex flex-col lg:flex-row justify-evenly align-middle mx-auto  container">
+    <div class="flex flex-col lg:flex-row justify-evenly align-middle mx-auto ">
         <div class="p-1">
-            {{-- latest blog --}}
-            
+            {{-- latest blog --}}  
             <section class="lg:p-6 p-1">
             
                 <div class="flex flex-col">
@@ -68,7 +67,7 @@
                         </h1>
             
                     
-                        <div class="mb-8 mx-auto">
+                        <div class="mb-8 mx-auto w-full">
                             @foreach ($category->posts->take(4) as $post)
                                 <x-post-item :post="$post" />
                             @endforeach    
@@ -79,6 +78,7 @@
             </section>
         </div>
 
+        {{-- show categories --}}
         <div class="bg-white mx-auto p-6 h-fit my-6 md:mt-24 w-full md:w-80">
             <h1 class="md:text-2xl text-3xl font-extrabold uppercase mb-3">{{__('site.categories')}}</h1>
             <hr>

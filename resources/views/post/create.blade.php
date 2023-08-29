@@ -41,7 +41,7 @@
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                   {{__('site.title')}}
                 </label>
-                <input class="appearance-none block w-full bg-gray-200 text-gray-700  rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="title" type="text" placeholder="blog title">
+                <input  value="{{ old('title') }}" class="appearance-none block w-full bg-gray-200 text-gray-700  rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="title" type="text" placeholder="blog title">
               </div>
             </div>
 
@@ -53,7 +53,7 @@
 
                 
                 <textarea id="myeditorinstance" name="body" rows="10" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 p-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                    
+                  {{ old('body') }}
                 </textarea>
 
               </div>

@@ -1,5 +1,5 @@
-<div class="flex flex-row min-w-full overflow-hidden mx-auto  gap-2 my-3 bg-white p-1 md:p-3 shadow " style="max-width: 700px;">
-    <a href="{{route('post.show', $post->slug)}}" class="hidden md:flex flex-row items-center">
+<div class="flex flex-col lg:flex-row min-w-full overflow-hidden mx-auto  gap-2 my-3 bg-white p-3 md:p-6 shadow ">
+    <a href="{{route('post.show', $post->slug)}}" class=" md:flex flex-row items-center">
         <img src="{{$post->getImage()}}" class="mx-3 h-32 w-32 object-cover" alt="post image" style="">
     </a>
     <div class="mt-1 mx-3 w-full p-3 ">  
@@ -30,14 +30,14 @@
 
         <div class="flex flex-row justify-end">
             @if (Auth::id() == $post->user->id)
-                <div class="flex flex-row gap-3 mx-6 justify-end my-auto">
-                    <a href="{{route('post.edit', $post->slug)}}" class="text-orange-500 hover:text-orange-700">
+                <div class="flex flex-row gap-3 mx-6 justify-end">
+                    <a href="{{route('post.edit', $post->slug)}}" class="text-orange-500 hover:text-orange-700 my-auto">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
                             </svg>   
                     </a>
         
-                    <form action="{{route('post.destroy', $post->slug)}}" method="post"  onSubmit="return confirm('are you sure?') ">
+                    <form action="{{route('post.destroy', $post->slug)}}" method="post"  onSubmit="return confirm('are you sure?') " class="my-auto">
                         @csrf
                         @method('delete')
                         <button type="submit" class="text-red-500 hover:text-red-700">

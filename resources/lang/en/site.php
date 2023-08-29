@@ -104,5 +104,7 @@ return [
     'contact' => 'Contact',
     'my_blogs' => 'My Blogs',
     'manage_account' => 'Manage Account',
-    'browse_blogs' => 'Browse All Blogs'
+    'browse_blogs' => 'Browse All Blogs',
+    'allblogs' => 'All Blogs',
+    'submit' => 'submit',
 ];
