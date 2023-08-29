@@ -5,11 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\CategoryPost;
 use App\Models\Post;
-use App\Models\User;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -66,14 +63,6 @@ class PostController extends Controller
             ]);
 
             $post->categories()->attach($request->category);
-
-
-            // CategoryPost::create([
-            //     'category_id' => $request->category,
-            //     'post_id' => $post->id,
-            //     'created_at' => now(),
-            //     'updated_at' => now(),
-            // ]);
           
         } else {
             $post = Post::create([
@@ -86,13 +75,6 @@ class PostController extends Controller
             ]);
 
             $post->categories()->attach($request->category);
-            // CategoryPost::create([
-            //     'category_id' => $request->category,
-            //     'post_id' => $post->id,
-            //     'created_at' => now(),
-            //     'updated_at' => now(),
-            // ]);
-
         }
 
         return redirect('/posts')->with('message', 'Post Created successfuly!');
@@ -113,11 +95,16 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        $categories = Category::all();
-        $postCategory = CategoryPost::where('post_id', '=', $post->id)->first();
-        $selectedCategory = $postCategory->category_id;
+        if(Auth::check() && Auth::id() == $post->id){
+            $categories = Category::all();
+            $postCategory = CategoryPost::where('post_id', '=', $post->id)->first();
+            $selectedCategory = $postCategory->category_id;
+    
+            return view('post.edit', compact('post', 'categories', 'selectedCategory'));
+        }else{
+            return redirect()->to('/');
+        }
 
-        return view('post.edit', compact('post', 'categories', 'selectedCategory'));
     }
 
     /**
@@ -183,7 +170,7 @@ class PostController extends Controller
             return redirect('/posts')->with('message', 'post updated successfully');
            
         }else{
-            return redirect('/login');
+            return redirect()->to('/');
         }
      
 
@@ -194,12 +181,17 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        if($post->image){
-           unlink($post->image);
-        }
-        $post->delete();
+        if(Auth::check() && $post->user_id == Auth::id()){
+            if($post->image){
+               unlink($post->image);
+            }
+            $post->delete();
+    
+            return redirect()->back()->with('message', 'post deleted successfully');
 
-        return redirect()->back()->with('message', 'post deleted successfully');
+        }else{
+            return redirect()->to('/');
+        }
 
     }
 

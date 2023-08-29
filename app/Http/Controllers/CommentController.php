@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -30,8 +31,12 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        $comment->delete();
-        return back()->with('message', 'Comment Deleted Successfully!');
+        if(Auth::check() && Auth::id() == $comment->id){
+            $comment->delete();
+            return back()->with('message', 'Comment Deleted Successfully!');
+        }else{
+            return redirect()->to('/');
+        }
 
     }
 }
