@@ -17,7 +17,13 @@
     <div class="flex flex-row justify-between mt-1">
         <div class=" w-full">
             @foreach ($post->categories as $category)
-                <a href="{{route('post.category', $category)}}" class="inline-block hover:bg-gray-200 transition-all ease  rounded-full px-3 py-1 text-sm font-semibold text-gray-500">#{{$category->name}}</a>
+                @if (App::isLocale('ar') && $category->name_ar != null)
+                    <a href="{{route('post.category', $category)}}" class="inline-block hover:bg-gray-200 transition-all ease  rounded-full px-3 py-1 text-sm font-semibold text-gray-500">#{{$category->name_ar}}</a>
+        
+                @else
+                    <a href="{{route('post.category', $category)}}" class="inline-block hover:bg-gray-200 transition-all ease  rounded-full px-3 py-1 text-sm font-semibold text-gray-500">#{{$category->name_en}}</a>
+        
+                @endif
             @endforeach
 
         </div>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\App;
 
 class HomeController extends Controller
 {
@@ -29,7 +29,11 @@ class HomeController extends Controller
         //search in categories if posts == 0
         if(!$posts == null){
             $posts = Post::whereHas('categories', function ($query) use ($search) {
-                $query->where('name', $search);
+                if(App::isLocale('ar')){
+                    $query->where('name_ar', $search);
+                }else{
+                    $query->where('name_en', $search);
+                }
             })->get();
         }
         return view('post.search', compact('posts'));

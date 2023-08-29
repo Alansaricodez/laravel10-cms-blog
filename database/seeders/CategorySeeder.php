@@ -14,15 +14,18 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         Category::create([
-            'name' => 'laravel',
+            'name_en' => 'laravel',
+            'name_ar' => 'لارافيل',
             'slug' => 'laravel',
         ]);
         Category::create([
-            'name' => 'php',
+            'name_en' => 'php',
+            'name_ar' => 'php',
             'slug' => 'php',
         ]);
         Category::create([
-            'name' => 'javascript',
+            'name_en' => 'javascript',
+            'name_ar' => 'جافاسكربيت',
             'slug' => 'javascript',
         ]);
     }

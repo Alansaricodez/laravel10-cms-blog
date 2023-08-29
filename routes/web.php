@@ -47,7 +47,7 @@ Route::controller(PostController::class)->group(function () {
     Route::delete('/posts/{post:slug}/delete', 'destroy')->name('post.destroy');
 
     //posts by category
-    Route::get('/{category:name}/posts', 'byCategory')->name('post.category');
+    Route::get('/{category}/posts', 'byCategory')->name('post.category');
 });
 
 //get user posts

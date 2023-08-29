@@ -6,7 +6,6 @@
       </svg>
    
       <span class="font-medium text-gray-900">{{ $post->likes->count() }}</span>
-      <span class="sr-only">likes</span>
     </button>
   </span>
 

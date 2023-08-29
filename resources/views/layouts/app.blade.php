@@ -54,10 +54,12 @@
                           
             @endif
 
+
             
-         
+            
             <!-- Page Content -->
             <main class="bg-gray-100 pt-14 mx-auto">
+
                 {{ $slot }}
             </main>
 

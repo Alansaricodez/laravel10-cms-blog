@@ -73,7 +73,13 @@
                     <select name="categories[]" multiple class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 ps-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                         <option disabled>Select Category</option>
                         @foreach ($categories as $category)
-                            <option value="{{$category->id}}" {{$category->id == $selectedCategory  ? 'selected="selected"': ''}}>{{$category->name}}</option>
+
+                            @if (App::isLocale('ar') && $category->name_ar != null)
+                            <option value="{{$category->id}}" {{$category->id == $selectedCategory  ? 'selected="selected"': ''}}>{{$category->name_ar}}</option>
+          
+                            @else
+                            <option value="{{$category->id}}" {{$category->id == $selectedCategory  ? 'selected="selected"': ''}}>{{$category->name_en}}</option>
+                            @endif
                         @endforeach
                     </select>
                 </div>

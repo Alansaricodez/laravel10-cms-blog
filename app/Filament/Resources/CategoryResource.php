@@ -27,13 +27,15 @@ class CategoryResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
+                Forms\Components\TextInput::make('name_en')
                     ->required()
                     ->maxLength(255)
                     ->reactive()
                         ->afterStateUpdated(function(Closure $set, $state){
                             $set('slug', \Illuminate\Support\Str::slug($state));
                         }),
+                Forms\Components\TextInput::make('name_ar')
+                    ->maxLength(255),
                 Forms\Components\TextInput::make('slug')
                     ->required()
                     ->maxLength(255),
@@ -44,7 +46,8 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('name_en'),
+                Tables\Columns\TextColumn::make('name_ar'),
                 Tables\Columns\TextColumn::make('slug'),
 
             ])
@@ -54,6 +57,7 @@ class CategoryResource extends Resource
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
