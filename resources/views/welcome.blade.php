@@ -21,7 +21,7 @@
     </section>
 
     <div class="flex flex-col lg:flex-row justify-evenly align-middle mx-auto ">
-        <div class="p-1">
+        <div class="lg:p-6 lg:w-3/4">
             {{-- latest blog --}}  
             <section class="lg:p-6 p-1">
             
@@ -79,7 +79,7 @@
         </div>
 
         {{-- show categories --}}
-        <div class="bg-white mx-auto p-6 h-fit my-6 md:mt-24 w-full md:w-80">
+        <div class="bg-white mx-auto p-3 lg:p-6 h-fit my-6 md:mt-36 w-full md:w-80">
             <h1 class="md:text-2xl text-3xl font-extrabold uppercase mb-3">{{__('site.categories')}}</h1>
             <hr>
 

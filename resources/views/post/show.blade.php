@@ -25,7 +25,7 @@
       <li aria-current="page">
         <div class="flex items-center">
           /
-          <span class="mx-1 text-sm font-medium text-gray-500 md:me-2 ">{{$post->title}}</span>
+          <span class="mx-1 text-sm font-medium text-gray-500 md:me-2 ">{{\Illuminate\Support\Str::words($post->title, 4)}}</span>
         </div>
       </li>
     </ol>

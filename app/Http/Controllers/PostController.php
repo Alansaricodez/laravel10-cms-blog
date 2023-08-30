@@ -95,7 +95,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        if(Auth::check() && Auth::id() == $post->id){
+        if(Auth::check() && Auth::id() == $post->user_id){
             $categories = Category::all();
             $postCategory = CategoryPost::where('post_id', '=', $post->id)->first();
             $selectedCategory = $postCategory->category_id;
