@@ -28,21 +28,25 @@
         </div>
       </li>
     </ol>
-  </nav>
+</nav>
     
     <div class="min-h-screen p-6 mx-auto">
-        <h1 class="md:text-5xl text-3xl w-fit mx-auto font-extrabold uppercase my-3 text-center border-blue-700 border-b-2">{{__('site.search_result')}}</h1>
+        <h1 class="md:text-3xl text-xl w-full p-3 mx-auto lg:ms-0 font-extrabold uppercase lg:mb-4 text-center bg-white">{{__('site.search_result')}}</h1>
 
         <x-search-component />
 
-        <div class="flex flex-col gap-3 mx-auto my-6 p-3 lg:w-1/2">
-            @if($posts->count() > 0)
-                @foreach ($posts as $post)
-                    <x-post-item :post="$post" />
-                @endforeach
-            @else 
-                <h3 class="m-6 font-bold text-black">No Results found</h3>
-            @endif
+        <div class="flex flex-col lg:flex-row justify-center align-middle my-3 ">
+          <div class="flex flex-col my-3 lg:p-6 p-1">
+              @foreach ($posts as $post)
+                  <x-post-item :post="$post" />
+              @endforeach
+
+          </div>
+
+          <x-categories />
+   
+
+
         </div>
     </div>
 </x-app-layout>

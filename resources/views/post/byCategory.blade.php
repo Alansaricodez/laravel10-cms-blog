@@ -50,16 +50,16 @@
       </div>
 
          <div class="flex flex-col lg:flex-row justify-center align-middle my-3 ">
-        <div class="flex flex-col my-3 lg:p-6 p-1">
-            @foreach ($posts as $post)
-                <x-post-item :post="$post" />
-            @endforeach
+            <div class="flex flex-col my-3 lg:p-6 p-1">
+                @foreach ($posts as $post)
+                    <x-post-item :post="$post" />
+                @endforeach
 
-        </div>
+            </div>
 
-        <x-categories />
+            <x-categories />
      
 
 
-      </div>
+          </div>
 </x-app-layout>
