@@ -21,37 +21,38 @@
                 </div>
               </li>
             </ol>
-          </nav>
+        </nav>
 
           <div class="">
-              <h1 class="md:text-5xl text-3xl w-fit mx-auto font-extrabold uppercase my-3 text-center border-blue-700 border-b-2">{{__('site.browse_blogs')}}</h1>
-                      @auth
-                          <div class="mt-6 py-3 text-center">
-                              <a href="{{route('post.create')}}" class="text-blue-700  transition duration-300 hover:text-white border border-blue-700 uppercase bg-white hover:bg-blue-700  text-md lg:text-lg font-extrabold py-2 px-4 rounded">
-                                {{__('site.create_blog')}}
-                              </a>
-                          </div>
-                          
-                      @endauth
-      
-                      <x-search-component />
-      
-              
-                 
-                
-      
-              <div class="flex flex-col gap-3 mx-auto my-6 p-3 py-6 lg:w-1/2">
-                  @foreach ($posts as $post)
-                      <x-post-item :post="$post" />
-                  @endforeach
-              </div>
+              <h1 class="md:text-3xl text-xl w-full p-3 mx-auto lg:ms-0 font-extrabold uppercase lg:mb-4 text-center bg-white">{{__('site.browse_blogs')}}</h1>
+              @auth
+                  <div class="mt-6 py-3 text-center">
+                      <a href="{{route('post.create')}}" class="text-blue-700  transition duration-300 hover:text-white border border-blue-700 uppercase bg-white hover:bg-blue-700  text-md lg:text-lg font-extrabold py-2 px-4 rounded">
+                        {{__('site.create_blog')}}
+                      </a>
+                  </div>
+                  
+              @endauth
+
+              <x-search-component />
 
           </div>
 
-       
-
-        <div class="mx-auto py-3 w-1/4">
-            {{$posts->links()}}
+      <div class="flex flex-col lg:flex-row justify-center align-middle my-3 ">
+        <div class="flex flex-col my-3 lg:p-6 p-1">
+            @foreach ($posts as $post)
+                <x-post-item :post="$post" />
+            @endforeach
+            <div class="mx-auto py-">
+                {{$posts->links()}}
+            </div>
         </div>
+
+        <x-categories />
+     
+
+
+      </div>
+
     </div>
 </x-app-layout>

@@ -11,7 +11,7 @@
 
         <div class="grid items-center max-w-screen-xl px-4 py-8 mx-auto xl:gap-0 lg:py-16">
             <div class="mx-auto w-full text-center">
-                <h1 class="mb-4 text-4xl font-extrabold md:text-5xl xl:text-6xl text-white">{{__('site.our_first_laravel_blog')}}</h1>
+                <h1 class="lg:mb-4 text-4xl font-extrabold md:text-5xl xl:text-6xl text-white">{{__('site.our_first_laravel_blog')}}</h1>
 
                 
                 <x-search-component />
@@ -20,24 +20,24 @@
         </div>
     </section>
 
-    <div class="flex flex-col lg:flex-row justify-evenly align-middle mx-auto ">
-        <div class="lg:p-6 lg:w-3/4">
+    <div class="flex flex-col lg:flex-row justify-center align-middle my-3 ">
+        <div class="lg:p-6">
             {{-- latest blog --}}  
             <section class="lg:p-6 p-1">
             
                 <div class="flex flex-col">
                 {{-- latest post --}}
                 
-                    <div class="mb-8 ">
-                        <h1 class="md:text-5xl text-3xl w-fit mx-auto lg:ms-0 font-extrabold uppercase my-6 border-blue-700 border-b-2">{{__('site.latest_blog')}}</h1>
+                    <div class="mb-8 w-full">
+                        <h1 class="md:text-3xl text-xl w-full p-3 mx-auto lg:ms-0 font-extrabold uppercase lg:mb-4 bg-white">{{__('site.latest_blog')}}</h1>
                             <x-post-item :post="$latestPost" />
                     </div>
             
                      {{--  Popular posts --}}
-                    <div class="mb-8">
-                        <h1 class="md:text-5xl text-3xl w-fit mx-auto lg:ms-0 font-extrabold uppercase my-6 border-blue-700 border-b-2">{{__('site.popular_blogs')}}</h1>
+                    <div class="mb-8 w-full">
+                        <h1 class="md:text-3xl text-xl w-full p-3 mx-auto lg:ms-0 font-extrabold uppercase lg:mb-4  bg-white">{{__('site.popular_blogs')}}</h1>
                         
-                        <div class="flex flex-col gap-3 mx-auto my-6 p-3 w-full">
+                        <div class="flex flex-col  mx-auto w-full">
 
                             @foreach ($popularPosts as $post)
                                 <x-post-item :post="$post" />
@@ -52,10 +52,10 @@
             
             
             {{-- blogs by category --}}
-            <section class=" lg:p-6 p-1">
-                <div class="flex flex-col gap-3 mx-auto my-6 p-3 w-full">
+            <section class=" lg:p-6 p-1 ">
+                <div class="flex flex-col  gap-3 my-6 p-3 w-full">
                     @foreach ($categories as $category)
-                        <h1 class="md:text-5xl text-3xl mx-auto lg:ms-0  w-fit font-extrabold uppercase mt-10 border-blue-700 border-b-2">
+                        <h1 class="md:text-3xl text-xl w-full p-3 mx-auto lg:ms-0 font-extrabold uppercase lg:mb-4 hover:cursor-pointer hover:text-blue-600 bg-white">
                             <a href="{{route('post.category', $category)}}">
 
                                 @if (App::isLocale('ar') && $category->name_ar != null)
@@ -67,39 +67,19 @@
                         </h1>
             
                     
-                        <div class="mb-8 mx-auto w-full">
+                        <div class="mb-8 w-full">
                             @foreach ($category->posts->take(4) as $post)
                                 <x-post-item :post="$post" />
                             @endforeach    
                         </div>
                                 
-                @endforeach
+                    @endforeach
                 </div>
             </section>
         </div>
 
         {{-- show categories --}}
-        <div class="bg-white mx-auto p-3 lg:p-6 h-fit my-6 md:mt-36 w-full md:w-80">
-            <h1 class="md:text-2xl text-3xl font-extrabold uppercase mb-3">{{__('site.categories')}}</h1>
-            <hr>
-
-            <ul>
-                @foreach (\App\Models\Category::all() as $category)
-                    <li class="my-2 ">
-                        <a href="{{route('post.category', $category)}}" class="flex flex-row justify-between hover:bg-gray-200 p-1">
-                            @if (App::isLocale('ar') && $category->name_ar != null)
-                                {{$category->name_ar}}                        
-                            @else
-                                {{$category->name_en}}                        
-                            @endif
-
-                            
-                            <span class="bg-gray-300 text-gray-600 px-2">{{$category->posts->count()}}</span>
-                        </a>
-                    </li>
-                @endforeach
-            </ul>
-        </div>
+        <x-categories />
     </div>
 
 

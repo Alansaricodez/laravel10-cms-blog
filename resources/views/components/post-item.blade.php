@@ -1,4 +1,4 @@
-<div class="flex flex-col lg:flex-row min-w-full overflow-hidden mx-auto  gap-2 my-3 bg-white p-3 md:p-6 shadow ">
+<div class="flex flex-col lg:flex-row min-w-full overflow-hidden mx-auto  gap-2 my-3 bg-white p-3  shadow ">
     <a href="{{route('post.show', $post->slug)}}" class=" md:flex flex-row items-center">
         <img src="{{$post->getImage()}}" class="mx-3 h-32 w-32 object-cover" alt="post image" style="">
     </a>

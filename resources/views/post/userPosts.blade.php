@@ -23,7 +23,7 @@
 
     
     <div class="h-screen p-6 flex flex-col  ">
-        <h1 class="md:text-5xl text-3xl w-fit mx-auto font-extrabold uppercase my-3 mt-10 text-center border-blue-700 border-b-2">{{__('My Blogs')}}</h1>
+        <h1 class="md:text-3xl text-xl w-full p-3 mx-auto lg:ms-0 font-extrabold uppercase lg:mb-4 text-center bg-white">{{__('My Blogs')}}</h1>
         
         @auth
           <div class="mt-6 py-3 text-center">
