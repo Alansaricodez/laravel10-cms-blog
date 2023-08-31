@@ -6,17 +6,17 @@
           <div>
             @foreach ($post->categories as $category)
                 @if (App::isLocale('ar') && $category->name_ar != null)
-                    <a href="{{route('post.category', $category)}}" class="inline-block hover:bg-gray-200 transition-all ease p-1 text-sm font-semibold text-gray-500">#{{$category->name_ar}}</a>
+                    <a href="{{route('post.category', $category)}}" class="inline-block hover:bg-blue-700 hover:text-white border mb-1 hover:border-gray-200 rounded-full bg-gray-200 transition-all ease   p-1 text-sm font-semibold text-gray-500">#{{$category->name_ar}}</a>
         
                 @else
-                    <a href="{{route('post.category', $category)}}" class="inline-block hover:bg-gray-200 transition-all ease   p-1 text-sm font-semibold text-gray-500">#{{$category->name_en}}</a>
+                    <a href="{{route('post.category', $category)}}" class="inline-block hover:bg-blue-700 hover:text-white border mb-1 hover:border-gray-200 rounded-full bg-gray-200 transition-all ease   p-1 text-sm font-semibold text-gray-500">#{{$category->name_en}}</a>
                 @endif
             @endforeach
 
         </div>
 
         <a href="{{route('post.show', $post->slug)}}">
-            <h3 class="text-md lg:text-xl font-bold uppercase break-all hover:text-blue-500">{{\Illuminate\Support\Str::words($post->title, 15)}}</h3>
+            <h3 class="text-md lg:text-xl font-bold uppercase break-all hover:text-blue-700">{{\Illuminate\Support\Str::words($post->title, 15)}}</h3>
         </a>
 
         <p class="text-sm text-gray-500 mb-3">

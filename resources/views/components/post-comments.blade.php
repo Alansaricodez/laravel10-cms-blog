@@ -4,41 +4,54 @@
           <h2 class="text-lg lg:text-2xl font-bold text-gray-900 ">{{__('site.discussion')}} ({{$post->comments->count()}})</h2>
       </div>
 
-      <form  class="my-6" method="POST" action="{{route('comment.store', $post->slug)}}">
-        @csrf
-          <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 ">
-              <label for="comment" class="sr-only">Your comment</label>
-              <textarea name="content" rows="6"
-                  class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none "
-                  placeholder="Write a comment..." required></textarea>
+      @auth
+      
+            <form  class="my-6" method="POST" action="{{route('comment.store', $post->slug)}}">
+              @csrf
+                <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 ">
+                    <label for="comment" class="sr-only">Your comment</label>
+                    <textarea name="content" rows="6"
+                        class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none "
+                        placeholder="Write a comment..." required></textarea>
+      
+                        <input type="hidden" name="post_id" value="{{$post->id}}">
+                        <input type="hidden" name="user_id" value="{{Auth::id()}}">
+                </div>
+                <button type="submit"
+                    class="text-white  transition duration-300 hover:text-blue-700 border border-blue-700 uppercase hover:bg-white bg-blue-700  text-md lg:text-lg font-extrabold py-2 px-4 rounded">
+                   {{__('site.submit')}}
+                </button>
+            </form>
 
-                  <input type="hidden" name="post_id" value="{{$post->id}}">
-                  <input type="hidden" name="user_id" value="{{Auth::id()}}">
-          </div>
-          <button type="submit"
-              class="text-white  transition duration-300 hover:text-blue-700 border border-blue-700 uppercase hover:bg-white bg-blue-700  text-md lg:text-lg font-extrabold py-2 px-4 rounded">
-             {{__('site.submit')}}
-          </button>
-      </form>
+        @else
+        <a href="{{route('login')}}">
+            <h3 class="text-lg lg:text-xl  text-gray-700 hover:text-blue-700 hover:cursor-pointer ease-in transition-all ">
+                {{__('site.login_required')}} 
+            </h3>
+        </a>
+            
+          
+      @endauth
 
-
+            <hr class="my-3">
       @if($post->comments->count() > 0)
 
         @foreach ($post->comments as $comment)
             <article class="p-6 mb-6 text-base bg-white rounded-lg ">
                 <footer class="flex justify-between items-center mb-2">
-                    <div class="flex items-center">
-                        <p class="inline-flex items-center ms-3 text-sm text-gray-900 ">
+                    <div class="flex items-center mb-3">
+                        <div class="inline-flex items-center ms-3 text-sm text-gray-900 ">
                             @if ($comment->user->profile_photo_path)
-                                <img class="ms-2 w-6 h-6 rounded-full"
+                                <img class="me-3 w-12 h-12 object-cover rounded-full"
                                 src="{{asset('storage/'.$comment->user->profile_photo_path)}}"
                                 alt="user image" /> 
 
                             @endif
                          
 
-                                {{$comment->user->name}}</p>
-                        <p class="text-sm text-gray-600"><time pubdate datetime="2022-02-08"
+                                <span class="text-blue-700">{{$comment->user->name}}</span>
+                        </div>
+                        <p class="text-sm mx-3 text-gray-600"><time pubdate datetime="2022-02-08"
                                 title="February 8th, 2022">{{$comment->created_at->diffForHumans()}}</time></p>
                     </div>
             

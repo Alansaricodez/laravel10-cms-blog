@@ -37,9 +37,9 @@
         <div class="md:ms-12 my-3">
              @foreach ($post->categories as $category)
                 @if (App::isLocale('ar') && $category->name_ar != null)
-                  <a href="{{route('post.category', $category)}}" class="inline-block hover:bg-gray-200 transition-all ease  rounded-full px-3 py-1 text-sm md:text-xl font-semibold text-gray-500">#{{$category->name_ar}}</a>
+                  <a href="{{route('post.category', $category)}}" class="inline-block hover:bg-blue-700 hover:text-white border mb-1 hover:border-gray-200 rounded-full bg-gray-200 transition-all ease   p-1 text-sm font-semibold text-gray-500">#{{$category->name_ar}}</a>
                 @else
-                  <a href="{{route('post.category', $category)}}" class="inline-block hover:bg-gray-200 transition-all ease  rounded-full px-3 py-1 text-sm md:text-xl font-semibold text-gray-500">#{{$category->name_en}}</a>
+                  <a href="{{route('post.category', $category)}}" class="inline-block hover:bg-blue-700 hover:text-white border mb-1 hover:border-gray-200 rounded-full bg-gray-200 transition-all ease   p-1 text-sm font-semibold text-gray-500">#{{$category->name_en}}</a>
                 @endif
              @endforeach
         </div>
@@ -51,7 +51,7 @@
                 @if ($post->user->profile_photo_path)
                     <img src="{{asset('storage/'.$post->user->profile_photo_path)}}" class="w-12 h-12 object-cover rounded-full" alt="user image">
                 @endif
-                <h2 class="font-bold my-auto">  {{$post->user->name}} .</h2>  
+                <h2 class="font-bold text-blue-700 my-auto">  {{$post->user->name}} .</h2>  
                 <p class="my-auto mx-1 text-gray-500">{{$post->updated_at->diffForHumans()}}</p>
 
             </div>
@@ -88,7 +88,7 @@
 
        <div class="mt-6 md:text-xl text-lg">
             @if ($post->getImage())
-                <img src="{{asset($post->getImage())}}" class=" w-full my-6 object-cover" alt="user image">
+                <img src="{{asset($post->getImage())}}" class=" w-full my-6 object-cover rounded-lg" alt="user image">
             @endif
                 {!!$post->body!!}
 

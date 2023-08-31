@@ -160,5 +160,6 @@ return [
     'code' => 'code',
     'store_code_notice' => 'Store these recovery codes in a secure password manager. They can be used to recover access to your account if your two factor authentication device is lost.',
     'last_active' => 'Last Active',
+    'login_required' => 'Please login to comment',
 
 ];
