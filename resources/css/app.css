@@ -5,3 +5,12 @@
 [x-cloak] {
     display: none;
 }
+
+@font-face {
+    font-family: poppings;
+    src: url('https://fonts.googleapis.com/css?family=Poppins');
+}
+
+*{
+    font-family: poppings;
+}

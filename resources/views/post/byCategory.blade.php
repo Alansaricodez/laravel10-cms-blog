@@ -57,7 +57,10 @@
 
             </div>
 
-            <x-categories />
+            <div class="p-3 lg:p-0">
+              {{-- show categories --}}
+              <x-categories />
+          </div>
      
 
 
