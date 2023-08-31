@@ -46,7 +46,7 @@
             
         <h1 class="lg:text-5xl md:text-3xl text-xl w-fit mx-auto font-extrabold uppercase my-8 text-center">{{$post->title}}</h1>
        <hr>
-        <div class="flex flex-row justify-between align-middle  py-3">
+        <div class="flex flex-col gap-3 md:flex-row justify-between align-middle  py-3">
             <div class="flex flex-row gap-2 mx-3">
                 @if ($post->user->profile_photo_path)
                     <img src="{{asset('storage/'.$post->user->profile_photo_path)}}" class="w-12 h-12 object-cover rounded-full" alt="user image">
@@ -56,7 +56,7 @@
 
             </div>
 
-            <div class="flex flex-row my-auto">
+            <div class="flex flex-row my-auto p-3">
                 
                 <livewire:like :post="$post"/>
 
