@@ -17,7 +17,7 @@
               <li aria-current="page">
                 <div class="flex items-center">
                   /
-                  <span class="mx-2 text-sm font-medium text-gray-500 md:ml-2 "> {{__('site.blogs')}}</span>
+                  <span class="mx-2 text-sm font-medium text-gray-500 md:me-2 "> {{__('site.blogs')}}</span>
                 </div>
               </li>
             </ol>
