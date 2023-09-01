@@ -13,11 +13,9 @@
                     @endif
 
                     
-                    <span class="bg-gray-300 text-gray-600 px-2">{{$category->posts->count()}}</span>
+                    <span class="bg-gray-600 text-white px-2">{{$category->posts->count()}}</span>
                 </a>
             </li>
         @endforeach
     </ul>
-</div><div>
-    <!-- Live as if you were to die tomorrow. Learn as if you were to live forever. - Mahatma Gandhi -->
 </div>

@@ -17,7 +17,7 @@
         <div class="flex items-center">
           /
           
-          <a href="{{route('post.index')}}" class="inline-flex mx-1 items-center text-sm font-medium text-gray-700 hover:text-blue-600 "> 
+          <a href="{{route('post.index')}}" class="inline-flex mx-2 items-center text-sm font-medium text-gray-700 hover:text-blue-600 "> 
             {{__('site.blogs')}}
           </a>
         </div>
@@ -25,7 +25,7 @@
       <li aria-current="page">
         <div class="flex items-center">
           /
-          <span class="mx-1 text-sm font-medium text-gray-500 md:me-2 ">{{\Illuminate\Support\Str::words($post->title, 4)}}</span>
+          <span class="mx-2 text-sm font-medium text-gray-500  ">{{\Illuminate\Support\Str::words($post->title, 4)}}</span>
         </div>
       </li>
     </ol>
@@ -37,9 +37,9 @@
         <div class="md:ms-12 my-3">
              @foreach ($post->categories as $category)
                 @if (App::isLocale('ar') && $category->name_ar != null)
-                  <a href="{{route('post.category', $category)}}" class="inline-block hover:bg-blue-700 hover:text-white border mb-1 hover:border-gray-200 rounded-full bg-gray-200 transition-all ease   p-1 text-sm font-semibold text-gray-500">#{{$category->name_ar}}</a>
+                  <a href="{{route('post.category', $category)}}" class="inline-block border mb-1 text-white hover:bg-white hover:text-blue-700 hover:border-blue-200 rounded-full bg-blue-700 transition-all ease-in px-2 py-1 text-sm ">#{{$category->name_ar}}</a>
                 @else
-                  <a href="{{route('post.category', $category)}}" class="inline-block hover:bg-blue-700 hover:text-white border mb-1 hover:border-gray-200 rounded-full bg-gray-200 transition-all ease   p-1 text-sm font-semibold text-gray-500">#{{$category->name_en}}</a>
+                  <a href="{{route('post.category', $category)}}" class="inline-block border mb-1 text-white hover:bg-white hover:text-blue-700 hover:border-blue-200 rounded-full bg-blue-700 transition-all ease-in px-2 py-1 text-sm ">#{{$category->name_en}}</a>
                 @endif
              @endforeach
         </div>
@@ -87,8 +87,8 @@
        <hr>
 
        <div class="mt-6 md:text-xl text-lg">
-            @if ($post->getImage())
-                <img src="{{asset($post->getImage())}}" class=" w-full my-6 object-cover rounded-lg" alt="user image">
+            @if ($post->image)
+                <img src="{{asset($post->getImage())}}" class=" w-full my-6 object-cover rounded-lg" alt="Blog image">
             @endif
                 {!!$post->body!!}
 

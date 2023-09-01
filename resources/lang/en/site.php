@@ -100,7 +100,7 @@ return [
     'thumbnail' => 'thumbnail',
     'search_result' => 'search results',
     'discussion' => 'discussion',
-    'be_the_first_to_comment' => 'كن أول من يعلق!',
+    'be_the_first_to_comment' => 'Be the first to comment',
     'by' => 'By',
     'home' => 'Home',
     'blogs' => 'Blogs',

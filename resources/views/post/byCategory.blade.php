@@ -17,7 +17,7 @@
             <div class="flex items-center">
               /
               
-              <a href="{{route('post.index')}}" class="inline-flex mx-1 items-center text-sm font-medium text-gray-700 hover:text-blue-600 "> 
+              <a href="{{route('post.index')}}" class="inline-flex mx-2 items-center text-sm font-medium text-gray-700 hover:text-blue-600 "> 
                 {{__('site.blogs')}}
               </a>
             </div>
@@ -26,9 +26,9 @@
             <div class="flex items-center">
               /
               @if (App::isLocale('ar') && $category->name_ar != null)
-                <span class="me-1 text-sm font-medium text-gray-500 md:me-2 ">{{$category->name_ar}}</span>
+                <span class="mx-2 text-sm font-medium text-gray-500 md:me-2 ">{{$category->name_ar}}</span>
               @else
-                <span class="me-1 text-sm font-medium text-gray-500 md:me-2 ">{{$category->name_en}}</span>
+                <span class="mx-2 text-sm font-medium text-gray-500 md:me-2 ">{{$category->name_en}}</span>
               @endif
             </div>
           </li>

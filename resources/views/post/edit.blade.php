@@ -25,7 +25,7 @@
         <li aria-current="page">
           <div class="flex items-center">
             /
-            <span class="mx-1 text-sm font-medium text-gray-500 md:me-2 ">{{__('site.edit')}}</span>
+            <span class="mx-2 text-sm font-medium text-gray-500 md:me-2 ">{{__('site.edit')}}</span>
           </div>
         </li>
       </ol>

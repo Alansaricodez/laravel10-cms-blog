@@ -6,10 +6,10 @@
           <div>
             @foreach ($post->categories as $category)
                 @if (App::isLocale('ar') && $category->name_ar != null)
-                    <a href="{{route('post.category', $category)}}" class="inline-block hover:bg-blue-700 hover:text-white border mb-1 hover:border-gray-200 rounded-full bg-gray-200 transition-all ease   p-1 text-sm font-semibold text-gray-500">#{{$category->name_ar}}</a>
+                    <a href="{{route('post.category', $category)}}" class="inline-block border mb-1 text-white hover:bg-white hover:text-blue-700 hover:border-blue-200 rounded-full bg-blue-700 transition-all ease-in px-2 py-1 text-sm ">#{{$category->name_ar}}</a>
         
                 @else
-                    <a href="{{route('post.category', $category)}}" class="inline-block hover:bg-blue-700 hover:text-white border mb-1 hover:border-gray-200 rounded-full bg-gray-200 transition-all ease   p-1 text-sm font-semibold text-gray-500">#{{$category->name_en}}</a>
+                    <a href="{{route('post.category', $category)}}" class="inline-block border mb-1 text-white hover:bg-white hover:text-blue-700 hover:border-blue-200 rounded-full bg-blue-700 transition-all ease-in px-2 py-1 text-sm ">#{{$category->name_en}}</a>
                 @endif
             @endforeach
 

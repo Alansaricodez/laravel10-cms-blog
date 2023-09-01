@@ -24,7 +24,7 @@
       <li aria-current="page">
         <div class="flex items-center">
           /
-          <span class="mx-1 text-sm font-medium text-gray-500 md:me-2 ">{{__('site.search')}}</span>
+          <span class="mx-1 text-sm font-medium text-gray-500  ">{{__('site.search')}}</span>
         </div>
       </li>
     </ol>
@@ -46,7 +46,7 @@
           <div class="p-3 lg:p-0">
             {{-- show categories --}}
             <x-categories />
-        </div>
+          </div>
    
 
 
