@@ -15,11 +15,11 @@
           </svg>
       </button>
       <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
-        <ul class="flex flex-col items-center gap-3 font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-900 md:flex-row md:space-x-8 md:mt-0 md:border-0  ">
-          <li class="w-full">
-            <a href="/" class="block py-2 pe-3 mx-2 ps-4 text-white   rounded md:bg-transparent  {{ Route::currentRouteNamed('home') ? 'md:text-blue-700 bg-blue-700' : 'hover:text-black' }}  md:p-0 " aria-current="page"> {{__('site.home') }}</a>
+        <ul class="flex flex-col items-center font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-900 md:flex-row md:mt-0 md:border-0  ">
+          <li class="w-full lg:w-auto lg:mx-3">
+            <a href="/" class="block py-2 pe-3 mx-2 ps-4 text-white   rounded md:bg-transparent  {{ Route::currentRouteNamed('home') ? 'md:text-blue-700 bg-blue-700' : 'hover:text-blue-700' }}  md:p-0 " aria-current="page"> {{__('site.home') }}</a>
           </li>
-          <li class="w-full">
+          <li class="w-full lg:w-auto lg:mx-3">
                 <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 pe-3 mx-2 ps-4 text-white rounded hover:bg-gray-100 hover:text-black md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto ">{{__('site.blogs')}} 
                     <svg class="w-2.5 h-2.5 mx-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
@@ -45,14 +45,14 @@
                   </ul>
               </div>
           </li>
-          <li class="w-full">
+          <li class="w-full lg:w-auto lg:mx-3">
             <a href="{{route('about')}}" class="block py-2 pe-3 mx-2 ps-4 text-white rounded hover:bg-gray-100  md:hover:bg-transparent md:border-0 {{ Route::currentRouteNamed('about') ? 'md:text-blue-700 bg-blue-700 md:bg-transparent' : 'hover:text-blue-700' }} md:p-0"> {{ __('site.about') }}</a>
           </li>
-          <li class="w-full">
+          <li class="w-full lg:w-auto lg:mx-3">
             <a href="{{route('contact')}}" class="block py-2 pe-3 mx-2 ps-4 text-white rounded hover:bg-gray-100  md:hover:bg-transparent md:border-0 {{ Route::currentRouteNamed('contact') ? 'md:text-blue-700 bg-blue-700 md:bg-transparent' : 'hover:text-blue-700' }} md:p-0"> {{ __('site.contact') }}</a>
           </li>
 
-          <li class="w-full">
+          <li class="w-full lg:w-auto lg:mx-3">
                 <button id="dropdownNavbarLink_2" data-dropdown-toggle="dropdownNavbar_2" class="flex items-center justify-between w-full  py-2 pe-3 mx-2 ps-4 text-white rounded hover:bg-gray-100 hover:text-black md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto ">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802" />
@@ -149,7 +149,7 @@
                         </x-dropdown>
                     </div>
                 @else
-                    <div class="flex flex-col md:flex-row gap-3">
+                    <div class="flex flex-col md:flex-row gap-3 ">
                         <a href="{{ route('login') }}" class="block py-2 pe-3 ps-4 text-white rounded hover:bg-gray-100 hover:text-black md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"> {{ __('site.login') }}</a>
                         <a href="{{route('register')}}" class="block py-2 pe-3 ps-4 text-white rounded hover:bg-gray-100 hover:text-black md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"> {{ __('site.register') }}</a>
                     </div>
