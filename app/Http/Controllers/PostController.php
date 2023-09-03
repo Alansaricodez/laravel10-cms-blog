@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePostRequest;
 use App\Models\Category;
 use App\Models\CategoryPost;
 use App\Models\Post;
@@ -33,20 +34,11 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
-        if(!Auth::check()){
-            return redirect('/login');
-        }
-     
-
         $slug = Str::slug($request->title);
 
         if($request->hasFile('image')) {
-
-            $request->validate([
-                'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-            ]);
 
             $imageUrl =$request->image->getClientOriginalName();
             $request->file('image')->storeAs('post_images', $imageUrl, 'public');

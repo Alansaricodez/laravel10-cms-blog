@@ -94,7 +94,7 @@
                                     </button>
                                 @else
                                     <span class="inline-flex rounded-md px-4 py-2">
-                                        <button type="button" class="inline-flex items-center text-white hover:bg-gray-100 uppercase px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md  hover:text-blue-700 focus:outline-none  transition ease-in-out duration-150">
+                                        <button type="button" class="inline-flex items-center text-white hover:bg-gray-100 hover:bg-transparent uppercase px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md  hover:text-blue-700 focus:outline-none  transition ease-in-out duration-150">
                                             {{ Auth::user()->name }}
 
                                             <svg class="me-2 -ms-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
