@@ -22,12 +22,13 @@ class HomeController extends Controller
     public function search(Request $request){
         $search = $request->textInput;
         
-        $posts = Post::where('title','LIKE','%'.$search.'%')
-        ->orWhere('body','LIKE','%'.$search.'%')
+        $posts = Post::query()
+        ->where('title','LIKE',"%{$search}%")
+        // ->orWhere('body','LIKE',"%$search%")
         ->get();
 
         //search in categories if posts == 0
-        if(!$posts == null){
+        if($posts->count() == 0){
             $posts = Post::whereHas('categories', function ($query) use ($search) {
                 if(App::isLocale('ar')){
                     $query->where('name_ar', $search);
